@@ -43,12 +43,23 @@
     <Compile Include="ComponentModel\DataAnnotations\StringUidAttribute.cs" />
     <Compile Include="ComponentModel\DataAnnotations\UnicodeAttribute.cs" />
     <Compile Include="ComponentModel\DataAnnotations\UniqueAttribute.cs" />
+    <Compile Include="DomainEntity\DomainEntity.cs" />
+    <Compile Include="DomainEntity\Entity.cs" />
+    <Compile Include="DomainEntity\ICreatedDate.cs" />
+    <Compile Include="DomainEntity\Identity\IIdentityUser.cs" />
+    <Compile Include="DomainEntity\IEntity.cs" />
+    <Compile Include="DomainEntity\IUpdatedDate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bgle.csproj.nuspec" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\bgle.Extensions\bgle.Extensions.csproj">
+      <Project>{30790F1E-CE43-44B8-A127-1BA85611184C}</Project>
+      <Name>bgle.Extensions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -7,6 +7,7 @@ namespace bgle.ComponentModel.DataAnnotations
     public class StringUidAttribute : StringLengthAttribute
     {
         public const int MaxLenght = 13;
+
         public StringUidAttribute()
             : base(MaxLenght)
         {
