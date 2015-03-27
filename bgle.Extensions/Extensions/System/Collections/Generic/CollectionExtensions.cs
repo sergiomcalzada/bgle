@@ -4,7 +4,7 @@
     {
         public static void AddRange<T>(this ICollection<T> collection, IEnumerable<T> range)
         {
-            foreach (T value in range)
+            foreach (var value in range)
             {
                 collection.Add(value);
             }

@@ -8,7 +8,7 @@ namespace System
     {
         public static T ConvertTo<T>(this string s)
         {
-            Type targetType = typeof(T).GetEffectiveType();
+            var targetType = typeof(T).GetEffectiveType();
 
             if (targetType == typeof(string))
             {
@@ -44,7 +44,7 @@ namespace System
 
         public static T ToEnum<T>(this string value, T defaultValue) where T : struct
         {
-            Type type = typeof(T);
+            var type = typeof(T);
             if (!type.IsEnum)
             {
                 return defaultValue;
@@ -54,7 +54,7 @@ namespace System
             {
                 return (T)Enum.Parse(type, value, true);
             }
-            T res = Enum.GetValues(type).OfType<T>().FirstOrDefault(v => ((int)(object)v).ToString(CultureInfo.InvariantCulture) == value);
+            var res = Enum.GetValues(type).OfType<T>().FirstOrDefault(v => ((int)(object)v).ToString(CultureInfo.InvariantCulture) == value);
 
             return !Equals(res, default(T)) ? res : defaultValue;
         }
@@ -70,7 +70,7 @@ namespace System
             {
                 return Enum.Parse(type, value, true);
             }
-            foreach (object v in Enum.GetValues(type))
+            foreach (var v in Enum.GetValues(type))
             {
                 if (((int)v).ToString(CultureInfo.InvariantCulture) == value)
                 {

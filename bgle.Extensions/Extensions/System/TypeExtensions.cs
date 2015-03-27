@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Reflection;
 
 namespace System
 {
     public static class TypeExtensions
     {
-        
         public static Type[] GetAllInterfaces(this Type type)
         {
             var current = type.GetInterfaces();
@@ -84,12 +82,14 @@ namespace System
                 return false;
             }
 
-            if (type.IsEnum)
+            var effectiveType = type.GetEffectiveType();
+
+            if (effectiveType.IsEnum)
             {
                 return false;
             }
-
-            switch (Type.GetTypeCode(type.GetEffectiveType()))
+            
+            switch (Type.GetTypeCode(effectiveType))
             {
                 case TypeCode.Byte:
                 case TypeCode.Decimal:
