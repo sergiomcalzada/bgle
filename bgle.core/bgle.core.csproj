@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\AssemblyInfo\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
     <Compile Include="ComponentModel\DataAnnotations\StringUidAttribute.cs" />
     <Compile Include="ComponentModel\DataAnnotations\UnicodeAttribute.cs" />
     <Compile Include="ComponentModel\DataAnnotations\UniqueAttribute.cs" />
@@ -69,7 +72,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bgle.csproj.nuspec" />
+    <None Include="bgle.core.csproj.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\bgle.Extensions\bgle.Extensions.csproj">
