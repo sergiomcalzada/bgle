@@ -88,7 +88,7 @@ namespace System
             {
                 return false;
             }
-            
+
             switch (Type.GetTypeCode(effectiveType))
             {
                 case TypeCode.Byte:

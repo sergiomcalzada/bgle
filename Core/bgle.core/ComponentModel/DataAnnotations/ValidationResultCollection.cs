@@ -5,9 +5,11 @@ using System.Linq;
 
 namespace bgle.ComponentModel.DataAnnotations
 {
-    public class ValidationResultCollection 
+    public class ValidationResultCollection
     {
         public ICollection<ValidationResult> ValidationResults { get; private set; }
+
+        public bool IsValid { get { return !ValidationResults.Any(); } }
 
         public ValidationResultCollection()
         {
@@ -18,12 +20,5 @@ namespace bgle.ComponentModel.DataAnnotations
         {
             this.ValidationResults = new Collection<ValidationResult>(validationResults);
         }
-
-        public bool IsValid
-        {
-            get { return !ValidationResults.Any(); }
-        }
-
-        
     }
 }

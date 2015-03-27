@@ -31,6 +31,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bgle.Extensions", "Core\bgl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bgle.CQRS.Command", "CQRS\Command\bgle.CQRS.Command\bgle.CQRS.Command.csproj", "{6422348F-7583-42EA-8D8E-EC66A29E7440}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bgle.CQRS.CommandValidationHandler", "CQRS\Command\bgle.CQRS.CommandValidationHandler\bgle.CQRS.CommandValidationHandler.csproj", "{157A784F-7B8C-456B-BAD1-F3CDA80A3EC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bgle.CQRS.CommandValidation", "CQRS\Command\bgle.CQRS.CommandValidation\bgle.CQRS.CommandValidation.csproj", "{3490CA4A-26F1-4969-A45F-D4BC2AF47CF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,14 @@ Global
 		{6422348F-7583-42EA-8D8E-EC66A29E7440}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6422348F-7583-42EA-8D8E-EC66A29E7440}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6422348F-7583-42EA-8D8E-EC66A29E7440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{157A784F-7B8C-456B-BAD1-F3CDA80A3EC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{157A784F-7B8C-456B-BAD1-F3CDA80A3EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{157A784F-7B8C-456B-BAD1-F3CDA80A3EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{157A784F-7B8C-456B-BAD1-F3CDA80A3EC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3490CA4A-26F1-4969-A45F-D4BC2AF47CF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3490CA4A-26F1-4969-A45F-D4BC2AF47CF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3490CA4A-26F1-4969-A45F-D4BC2AF47CF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3490CA4A-26F1-4969-A45F-D4BC2AF47CF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,5 +72,7 @@ Global
 		{74DFB791-DBA6-43A7-BC27-4813E01DC077} = {3CA4ACFA-DC95-4E6F-9E8E-37B3B3D2EFAB}
 		{30790F1E-CE43-44B8-A127-1BA85611184C} = {3CA4ACFA-DC95-4E6F-9E8E-37B3B3D2EFAB}
 		{6422348F-7583-42EA-8D8E-EC66A29E7440} = {AD7F3A82-9319-478D-8ABC-382A29CF62BE}
+		{157A784F-7B8C-456B-BAD1-F3CDA80A3EC8} = {AD7F3A82-9319-478D-8ABC-382A29CF62BE}
+		{3490CA4A-26F1-4969-A45F-D4BC2AF47CF3} = {AD7F3A82-9319-478D-8ABC-382A29CF62BE}
 	EndGlobalSection
 EndGlobal
