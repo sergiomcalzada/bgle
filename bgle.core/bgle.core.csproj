@@ -43,12 +43,29 @@
     <Compile Include="ComponentModel\DataAnnotations\StringUidAttribute.cs" />
     <Compile Include="ComponentModel\DataAnnotations\UnicodeAttribute.cs" />
     <Compile Include="ComponentModel\DataAnnotations\UniqueAttribute.cs" />
-    <Compile Include="DomainEntity\DomainEntity.cs" />
-    <Compile Include="DomainEntity\Entity.cs" />
-    <Compile Include="DomainEntity\ICreatedDate.cs" />
-    <Compile Include="DomainEntity\Identity\IIdentityUser.cs" />
-    <Compile Include="DomainEntity\IEntity.cs" />
-    <Compile Include="DomainEntity\IUpdatedDate.cs" />
+    <Compile Include="Contracts\DateTimeHandling\IDateTimeProvider.cs" />
+    <Compile Include="Contracts\DateTimeHandling\UtcDateTimeProvider.cs" />
+    <Compile Include="Contracts\Encoder\Base32Encoder.cs" />
+    <Compile Include="Contracts\Encoder\IEncoder.cs" />
+    <Compile Include="Contracts\Encoder\ZBase32Encoder.cs" />
+    <Compile Include="Contracts\IdGenerator\UidGenerator.cs" />
+    <Compile Include="Contracts\Repository\IDbContext.cs" />
+    <Compile Include="Contracts\Repository\IRepository.cs" />
+    <Compile Include="Contracts\Specifications\AndSpecification.cs" />
+    <Compile Include="Contracts\Specifications\CompositeSpecification.cs" />
+    <Compile Include="Contracts\Specifications\Entity\CreatedDateTimeSpecification.cs" />
+    <Compile Include="Contracts\Specifications\Entity\EntityByIdSpecification.cs" />
+    <Compile Include="Contracts\Specifications\Entity\UpdatedDateTimeSpecification.cs" />
+    <Compile Include="Contracts\Specifications\ISpecification.cs" />
+    <Compile Include="Contracts\Specifications\OrSpecification.cs" />
+    <Compile Include="Contracts\Specifications\Specification.cs" />
+    <Compile Include="Contracts\UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="Entity\DomainEntity.cs" />
+    <Compile Include="Entity\Entity.cs" />
+    <Compile Include="Entity\ICreatedDate.cs" />
+    <Compile Include="Entity\Identity\IIdentityUser.cs" />
+    <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="Entity\IUpdatedDate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

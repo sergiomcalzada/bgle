@@ -1,4 +1,4 @@
-﻿namespace bgle.DomainEntity
+﻿namespace bgle.Entity
 {
     public interface IEntity
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace bgle.DomainEntity
+namespace bgle.Entity
 {
     public abstract class Entity<TKey> : IEntity<TKey>
     {
@@ -10,7 +10,6 @@ namespace bgle.DomainEntity
         public DateTime UpdatedDate { get; set; }
 
         public DateTime CreatedDate { get; set; }
-
 
         protected bool Equals(Entity<TKey> other)
         {
