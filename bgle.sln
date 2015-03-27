@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bgle.core", "Core\bgle.core
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bgle.Extensions", "Core\bgle.Extensions\bgle.Extensions.csproj", "{30790F1E-CE43-44B8-A127-1BA85611184C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bgle.CQRS.Command", "CQRS\Command\bgle.CQRS.Command\bgle.CQRS.Command.csproj", "{6422348F-7583-42EA-8D8E-EC66A29E7440}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{30790F1E-CE43-44B8-A127-1BA85611184C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30790F1E-CE43-44B8-A127-1BA85611184C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30790F1E-CE43-44B8-A127-1BA85611184C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6422348F-7583-42EA-8D8E-EC66A29E7440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6422348F-7583-42EA-8D8E-EC66A29E7440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6422348F-7583-42EA-8D8E-EC66A29E7440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6422348F-7583-42EA-8D8E-EC66A29E7440}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,5 +59,6 @@ Global
 		{4836349A-61F4-453A-94AD-73AB6C4B63EE} = {18EB07EF-EC82-4D72-8126-1257A0BCD60D}
 		{74DFB791-DBA6-43A7-BC27-4813E01DC077} = {3CA4ACFA-DC95-4E6F-9E8E-37B3B3D2EFAB}
 		{30790F1E-CE43-44B8-A127-1BA85611184C} = {3CA4ACFA-DC95-4E6F-9E8E-37B3B3D2EFAB}
+		{6422348F-7583-42EA-8D8E-EC66A29E7440} = {AD7F3A82-9319-478D-8ABC-382A29CF62BE}
 	EndGlobalSection
 EndGlobal
