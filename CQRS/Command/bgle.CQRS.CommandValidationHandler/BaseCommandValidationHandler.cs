@@ -3,7 +3,7 @@ using bgle.CQRS.Command;
 
 namespace bgle.CQRS.CommandValidationHandler
 {
-    public class BaseCommandValidationHandler<TCommand> : ICommandValidationHandler<TCommand>
+    public abstract class BaseCommandValidationHandler<TCommand> : ICommandValidationHandler<TCommand>
         where TCommand : IValidatableCommand
     {
         public virtual ValidationResultCollection Validate(TCommand command)

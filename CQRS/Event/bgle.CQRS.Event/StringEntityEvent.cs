@@ -1,6 +1,6 @@
 ﻿namespace bgle.CQRS.Event
 {
-    public class StringEntityEvent : EntityEvent<string>
+    public abstract class StringEntityEvent : EntityEvent<string>
     {
     }
 }

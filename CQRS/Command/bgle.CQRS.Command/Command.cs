@@ -2,14 +2,14 @@
 
 namespace bgle.CQRS.Command
 {
-    public class Command<T> : ICommand<T>
+    public abstract class Command<T> : ICommand<T>
     {
-        public Command()
+        protected Command()
             : this(default(T))
         {
         }
 
-        public Command(T id)
+        protected Command(T id)
         {
             this.Id = id;
         }

@@ -5,13 +5,13 @@ using bgle.ComponentModel.DataAnnotations;
 
 namespace bgle.CQRS.Command
 {
-    public class ValidatableCommand<T> : Command<T>, IValidatableCommand
+    public abstract class ValidatableCommand<T> : Command<T>, IValidatableCommand
     {
-        public ValidatableCommand()
+        protected ValidatableCommand()
         {
         }
 
-        public ValidatableCommand(T id)
+        protected ValidatableCommand(T id)
             : base(id)
         {
         }

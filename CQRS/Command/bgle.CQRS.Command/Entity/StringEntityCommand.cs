@@ -2,14 +2,14 @@
 
 namespace bgle.CQRS.Command
 {
-    public class StringEntityCommand : EntityCommand<string>
+    public abstract class StringEntityCommand : EntityCommand<string>
     {
-        public StringEntityCommand()
+        protected StringEntityCommand()
             : base(UidGenerator.NewStringUid(), true)
         {
         }
 
-        public StringEntityCommand(string id)
+        protected StringEntityCommand(string id)
             : base(id)
         {
         }
