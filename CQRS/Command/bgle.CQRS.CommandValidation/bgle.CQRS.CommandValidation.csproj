@@ -44,6 +44,9 @@
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
     <Compile Include="BaseValidator.cs" />
+    <Compile Include="Entity\BaseEntityValidator.cs" />
+    <Compile Include="Entity\EntityDoesNotExistValidator.cs" />
+    <Compile Include="Entity\EntityExistValidator.cs" />
     <Compile Include="IValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidatorFactory.cs" />
@@ -53,6 +56,9 @@
       <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
       <Name>bgle.core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bgle.CQRS.CommandValidation.csproj.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,3 +1,8 @@
+using bgle.Contracts.Repository;
+using bgle.CQRS.Command;
+using bgle.CQRS.CommandValidation;
+using bgle.Entity;
+
 namespace bgle.CQRS.CommandValidationHandler
 {
     public abstract class DeleteEntityCommandValidationHandler<TCommand, TEntity, TKey> : EntityCommandValidationHandler<TCommand, TEntity, TKey>
