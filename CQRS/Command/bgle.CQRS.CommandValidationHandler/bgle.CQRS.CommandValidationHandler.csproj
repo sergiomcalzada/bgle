@@ -43,9 +43,9 @@
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
     <Compile Include="BaseCommandValidationHandler.cs" />
-    <Compile Include="CreateEntityCommandValidationHandler.cs" />
-    <Compile Include="DeleteCommandValidationHandler.cs" />
-    <Compile Include="EntityCommandValidationHandler.cs" />
+    <Compile Include="Entity\CreateEntityCommandValidationHandler.cs" />
+    <Compile Include="Entity\DeleteCommandValidationHandler.cs" />
+    <Compile Include="Entity\EntityCommandValidationHandler.cs" />
     <Compile Include="ICommandValidationHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

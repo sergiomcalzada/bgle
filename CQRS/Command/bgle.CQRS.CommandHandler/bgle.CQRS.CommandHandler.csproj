@@ -66,10 +66,6 @@
       <Project>{63A27E75-338E-4442-8B34-372A4294CECC}</Project>
       <Name>bgle.CQRS.Event</Name>
     </ProjectReference>
-    <ProjectReference Include="..\bgle.CQRS.CommandValidationHandler\bgle.CQRS.CommandValidationHandler.csproj">
-      <Project>{157A784F-7B8C-456B-BAD1-F3CDA80A3EC8}</Project>
-      <Name>bgle.CQRS.CommandValidationHandler</Name>
-    </ProjectReference>
     <ProjectReference Include="..\bgle.CQRS.Command\bgle.CQRS.Command.csproj">
       <Project>{6422348f-7583-42ea-8d8e-ec66a29e7440}</Project>
       <Name>bgle.CQRS.Command</Name>
