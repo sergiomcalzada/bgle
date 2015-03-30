@@ -5,6 +5,7 @@ namespace bgle.CQRS.CommandValidation
     public abstract class BaseValidator : IValidator
     {
         private readonly string errorMessage;
+
         private readonly string[] memberNames;
 
         protected BaseValidator(string errorMessage, params string[] memberNames)

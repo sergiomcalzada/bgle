@@ -7,12 +7,12 @@ namespace bgle.CQRS.CommandValidation
 {
     public class ValidatorFactory
     {
+        private IList<ValidatorWrapper> ValidatorWrappers { get; set; }
+
         public ValidatorFactory()
         {
             this.ValidatorWrappers = new List<ValidatorWrapper>();
         }
-
-        private IList<ValidatorWrapper> ValidatorWrappers { get; set; }
 
         public ValidatorFactory Add(IValidator validator, bool continueOnNotSuccess = false)
         {
@@ -46,15 +46,15 @@ namespace bgle.CQRS.CommandValidation
 
         private class ValidatorWrapper
         {
+            public IValidator Validator { get; private set; }
+
+            public bool ContinueOnNotSuccess { get; private set; }
+
             public ValidatorWrapper(IValidator validator, bool continueOnNotSuccess)
             {
                 this.Validator = validator;
                 this.ContinueOnNotSuccess = continueOnNotSuccess;
             }
-
-            public IValidator Validator { get; private set; }
-            public bool ContinueOnNotSuccess { get; private set; }
         }
-       
     }
 }

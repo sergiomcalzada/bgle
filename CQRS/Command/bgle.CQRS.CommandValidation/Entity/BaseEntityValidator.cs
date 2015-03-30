@@ -8,7 +8,6 @@ namespace bgle.CQRS.CommandValidation
     public abstract class BaseEntityValidator<TEntity> : BaseValidator
         where TEntity : class, IEntity
     {
-
         protected readonly IRepository Repository;
 
         private readonly Lazy<TEntity> lazyEntity;
@@ -27,7 +26,6 @@ namespace bgle.CQRS.CommandValidation
             return entity != null && this.IsValid(this.lazyEntity.Value);
         }
 
-       protected abstract bool IsValid(TEntity value);
+        protected abstract bool IsValid(TEntity value);
     }
-
 }

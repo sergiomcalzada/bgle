@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E129EDC4-D3DE-411E-B62F-AB18CBEF1993}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>bgle.CQRS.CommandBus</RootNamespace>
+    <AssemblyName>bgle.CQRS.CommandBus</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
+    <Compile Include="BaseCommandBus.cs" />
+    <Compile Include="CommandBus.cs" />
+    <Compile Include="ICommandBus.cs" />
+    <Compile Include="ICommandHandlerFactory.cs" />
+    <Compile Include="IScopedCommandHandlerFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransactionalCommandBus.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bgle.CQRS.CommandBus.csproj.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\bgle.core\bgle.core.csproj">
+      <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
+      <Name>bgle.core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bgle.CQRS.CommandHandler\bgle.CQRS.CommandHandler.csproj">
+      <Project>{22B4587F-736E-47AE-AB02-DE9949467C21}</Project>
+      <Name>bgle.CQRS.CommandHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bgle.CQRS.CommandValidationHandler\bgle.CQRS.CommandValidationHandler.csproj">
+      <Project>{157A784F-7B8C-456B-BAD1-F3CDA80A3EC8}</Project>
+      <Name>bgle.CQRS.CommandValidationHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bgle.CQRS.Command\bgle.CQRS.Command.csproj">
+      <Project>{6422348F-7583-42EA-8D8E-EC66A29E7440}</Project>
+      <Name>bgle.CQRS.Command</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

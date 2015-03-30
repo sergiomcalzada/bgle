@@ -7,7 +7,8 @@ using bgle.Entity;
 
 namespace bgle.CQRS.CommandValidation
 {
-    public class EntityExistValidator<TEntity> : BaseEntityValidator<TEntity> where TEntity : class, IEntity
+    public class EntityExistValidator<TEntity> : BaseEntityValidator<TEntity>
+        where TEntity : class, IEntity
     {
         private readonly Specification<TEntity> specification;
 
@@ -28,13 +29,11 @@ namespace bgle.CQRS.CommandValidation
         }
     }
 
-    public class EntityExistValidator<TEntity, TEntityType> : EntityExistValidator<TEntity> where TEntity : class, IEntity<TEntityType>
+    public class EntityExistValidator<TEntity, TEntityType> : EntityExistValidator<TEntity>
+        where TEntity : class, IEntity<TEntityType>
     {
         public EntityExistValidator(TEntityType id, IRepository repository)
-            : base(new EntityByIdSpecification<TEntity, TEntityType>(id),
-                   repository,
-                   string.Format("{0} already exists", typeof(TEntity)),
-                   "Id")
+            : base(new EntityByIdSpecification<TEntity, TEntityType>(id), repository, string.Format("{0} already exists", typeof(TEntity)), "Id")
         {
         }
     }
