@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5F09AD8-259D-4F13-A226-56BD281F02D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>bgle.CastleWindsor</RootNamespace>
+    <AssemblyName>bgle.CastleWindsor</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
+    <Compile Include="Installer\Command\CommandHandlersInstaller.cs" />
+    <Compile Include="Installer\Command\CommandValidationHandlersInstaller.cs" />
+    <Compile Include="Installer\DatabaseAcessInstaller.cs" />
+    <Compile Include="Lifestile\LifetimeScopeOrTransientAccessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scope\CastleWindsorCommandScope.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Command\bgle.CQRS.CommandBus\bgle.CQRS.CommandBus.csproj">
+      <Project>{E129EDC4-D3DE-411E-B62F-AB18CBEF1993}</Project>
+      <Name>bgle.CQRS.CommandBus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Command\bgle.CQRS.CommandHandler\bgle.CQRS.CommandHandler.csproj">
+      <Project>{22B4587F-736E-47AE-AB02-DE9949467C21}</Project>
+      <Name>bgle.CQRS.CommandHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Command\bgle.CQRS.CommandValidationHandler\bgle.CQRS.CommandValidationHandler.csproj">
+      <Project>{157A784F-7B8C-456B-BAD1-F3CDA80A3EC8}</Project>
+      <Name>bgle.CQRS.CommandValidationHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\bgle.core\bgle.core.csproj">
+      <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
+      <Name>bgle.core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Command\bgle.CQRS.Command\bgle.CQRS.Command.csproj">
+      <Project>{6422348f-7583-42ea-8d8e-ec66a29e7440}</Project>
+      <Name>bgle.CQRS.Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bgle.CQRS.EntityFramework\bgle.CQRS.EntityFramework.csproj">
+      <Project>{84ADBFFB-AFB1-4E26-9732-6B699D4B3EE7}</Project>
+      <Name>bgle.CQRS.EntityFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
