@@ -4,18 +4,19 @@ using bgle.Contracts.DateTimeHandling;
 using bgle.CQRS.Command;
 using bgle.CQRS.CommandHandler.CommandLogger;
 using bgle.CQRS.Event;
+using bgle.CQRS.EventPublisher;
 
 namespace bgle.CQRS.CommandHandler
 {
-    public abstract class GivenDoPublishCommandHandler<TCommand, TEvent> : BaseEventPublisherCommandHandler<TCommand, TEvent>
+    public abstract class GivenDoPublishCommandHandler<TCommand, TEvent> : BaseEventStorerCommandHandler<TCommand, TEvent>
         where TCommand : ICommand where TEvent : class, IEvent
     {
         protected readonly IDateTimeProvider DateTimeProvider;
 
         private readonly ICommandLogger commandLogger;
 
-        protected GivenDoPublishCommandHandler(IEventPublisher eventPublisher, IDateTimeProvider dateTimeProvider, ICommandLogger commandLogger)
-            : base(eventPublisher)
+        protected GivenDoPublishCommandHandler(IEventStore eventStore, IDateTimeProvider dateTimeProvider, ICommandLogger commandLogger)
+            : base(eventStore)
         {
             this.DateTimeProvider = dateTimeProvider;
             this.commandLogger = commandLogger;

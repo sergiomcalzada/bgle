@@ -78,7 +78,6 @@ namespace bgle.CQRS.EntityFramework
             this.context.SaveChanges();
         }
 
-
         private void OpenConnection()
         {
             if (this.context.Database.Connection.State != ConnectionState.Open)

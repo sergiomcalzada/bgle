@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{22B4587F-736E-47AE-AB02-DE9949467C21}</ProjectGuid>
+    <ProjectGuid>{7D674D15-C24F-49F0-8EA6-FE7C9FA38D65}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>bgle.CQRS.CommandHandler</RootNamespace>
-    <AssemblyName>bgle.CQRS.CommandHandler</AssemblyName>
+    <RootNamespace>bgle.CQRS.EventHandler</RootNamespace>
+    <AssemblyName>bgle.CQRS.EventHandler</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,43 +39,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
-      <Link>Properties\AssemblyVersion.cs</Link>
-    </Compile>
-    <Compile Include="BaseCommandHandler.cs" />
-    <Compile Include="BaseEventStorerCommandHandler.cs" />
-    <Compile Include="CommandLogger\EmptyCommandLogger.cs" />
-    <Compile Include="CommandLogger\ICommandLogger.cs" />
-    <Compile Include="Entity\DeleteCommandHandler.cs" />
-    <Compile Include="Entity\EntityCommandHandler.cs" />
-    <Compile Include="Entity\UpsertCommandHandler.cs" />
-    <Compile Include="GivenDoPublishCommandHandler.cs" />
-    <Compile Include="ICommandHandler.cs" />
-    <Compile Include="ICommandScope.cs" />
+    <Compile Include="EntityEventHandler.cs" />
+    <Compile Include="BaseEventHandler.cs" />
+    <Compile Include="IEventHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bgle.CQRS.CommandHandler.csproj.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\bgle.core\bgle.core.csproj">
       <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
       <Name>bgle.core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Event\bgle.CQRS.EventStore\bgle.CQRS.EventStore.csproj">
-      <Project>{374799DB-FFB7-4F76-928F-4750EBB5A85B}</Project>
-      <Name>bgle.CQRS.EventStore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Event\bgle.CQRS.Event\bgle.CQRS.Event.csproj">
+    <ProjectReference Include="..\bgle.CQRS.Event\bgle.CQRS.Event.csproj">
       <Project>{63A27E75-338E-4442-8B34-372A4294CECC}</Project>
       <Name>bgle.CQRS.Event</Name>
     </ProjectReference>
-    <ProjectReference Include="..\bgle.CQRS.Command\bgle.CQRS.Command.csproj">
-      <Project>{6422348f-7583-42ea-8d8e-ec66a29e7440}</Project>
-      <Name>bgle.CQRS.Command</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

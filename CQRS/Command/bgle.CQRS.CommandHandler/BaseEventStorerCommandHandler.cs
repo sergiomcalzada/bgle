@@ -1,18 +1,19 @@
 using bgle.CQRS.Command;
 using bgle.CQRS.Event;
+using bgle.CQRS.EventPublisher;
 
 namespace bgle.CQRS.CommandHandler
 {
-    public abstract class BaseEventPublisherCommandHandler<TCommand, TEvent> : BaseCommandHandler<TCommand>
+    public abstract class BaseEventStorerCommandHandler<TCommand, TEvent> : BaseCommandHandler<TCommand>
         where TCommand : ICommand where TEvent : class, IEvent
     {
-        protected readonly IEventPublisher EventPublisher;
+        protected readonly IEventStore EventStore;
 
         private TEvent _event;
 
-        protected BaseEventPublisherCommandHandler(IEventPublisher eventPublisher)
+        protected BaseEventStorerCommandHandler(IEventStore eventStore)
         {
-            this.EventPublisher = eventPublisher;
+            this.EventStore = eventStore;
         }
 
         protected void QueueEvent(TEvent @event)
@@ -22,7 +23,7 @@ namespace bgle.CQRS.CommandHandler
 
         protected virtual void Publish()
         {
-            this.EventPublisher.Publish(this._event);
+            this.EventStore.Store(this._event);
         }
     }
 }

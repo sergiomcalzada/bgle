@@ -5,6 +5,7 @@ using bgle.Contracts.Specifications.Entity;
 using bgle.CQRS.Command;
 using bgle.CQRS.CommandHandler.CommandLogger;
 using bgle.CQRS.Event;
+using bgle.CQRS.EventPublisher;
 using bgle.Entity;
 
 namespace bgle.CQRS.CommandHandler
@@ -16,8 +17,8 @@ namespace bgle.CQRS.CommandHandler
 
         private TEntity entity;
 
-        protected EntityCommandHandler(IEventPublisher eventPublisher, IRepository repository, IDateTimeProvider dateTimeProvider, ICommandLogger commandLogger)
-            : base(eventPublisher, dateTimeProvider, commandLogger)
+        protected EntityCommandHandler(IEventStore eventStore, IRepository repository, IDateTimeProvider dateTimeProvider, ICommandLogger commandLogger)
+            : base(eventStore, dateTimeProvider, commandLogger)
         {
             this.Repository = repository;
         }

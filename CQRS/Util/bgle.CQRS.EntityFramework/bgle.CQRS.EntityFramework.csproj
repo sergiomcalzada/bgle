@@ -75,6 +75,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="bgle.CQRS.EntityFramework.csproj.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\bgle.core\bgle.core.csproj">
