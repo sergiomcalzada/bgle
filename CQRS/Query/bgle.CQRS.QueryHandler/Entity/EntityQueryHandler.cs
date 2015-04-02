@@ -24,27 +24,6 @@ namespace bgle.CQRS.QueryHandler
         }
     }
 
-    public abstract class EntitySpecificationMaterializerQueryHandler<TQuery, TQueryResult, TEntity, TQuerySpecificationBuilder, TQueryResultBuilder> : EntityQueryHandler<TQuery, TQueryResult, TEntity>
-        where TQuery : IQuery
-        where TQueryResult : IQueryResult
-        where TEntity : class, IEntity
-        where TQuerySpecificationBuilder : IQuerySpecificationBuilder<TQuery, TEntity>, new()
-        where TQueryResultBuilder : IQueryResultBuilder<TQueryResult, TEntity>
-    {
-        protected ISpecification<TEntity> Specification;
-
-        protected EntitySpecificationMaterializerQueryHandler(IRepository repository)
-            : base(repository)
-        {
-        }
-
-        protected override void BeforeHandle(TQuery query)
-        {
-            this.Specification = new TQuerySpecificationBuilder().Build(query);
-        }
-
-    }
-
     public abstract class EntitySpecificationQueryHandler<TQuery, TQueryResult, TEntity, TQuerySpecificationBuilder> : EntityQueryHandler<TQuery, TQueryResult, TEntity>
         where TQuery : IQuery
         where TQueryResult : IQueryResult
@@ -64,6 +43,7 @@ namespace bgle.CQRS.QueryHandler
         }
 
     }
+    
     public abstract class SingleEntitySpecificationMaterializerQueryHandler<TQuery, TQueryResult, TEntity, TQuerySpecificationBuilder, TQueryResultBuilder> :
         EntitySpecificationQueryHandler<TQuery, TQueryResult, TEntity, TQuerySpecificationBuilder>
         where TQuery : IQuery
@@ -90,7 +70,7 @@ namespace bgle.CQRS.QueryHandler
             return result;
         }
     }
-
+    
     public abstract class MiltipleEntitySpecificationMaterializerQueryHandler<TQuery, TQueryResult, TQueryResultItem, TEntity, TQuerySpecificationBuilder, TQueryResultBuilder> :
         EntitySpecificationQueryHandler<TQuery, TQueryResult, TEntity, TQuerySpecificationBuilder>
         where TQuery : IQuery
