@@ -4,11 +4,11 @@ using bgle.CQRS.CommandValidationHandler;
 
 namespace bgle.CQRS.CommandBus
 {
-    public class CommandBus : BaseCommandBus
+    public class CommandDispatcher : BaseCommandDispatcher
     {
         private readonly ICommandHandlerFactory factory;
 
-        public CommandBus(ICommandHandlerFactory factory)
+        public CommandDispatcher(ICommandHandlerFactory factory)
         {
             this.factory = factory;
         }

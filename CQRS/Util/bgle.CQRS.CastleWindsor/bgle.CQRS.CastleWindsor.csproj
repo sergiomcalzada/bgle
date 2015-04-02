@@ -59,9 +59,9 @@
     <Compile Include="Scope\CastleWindsorCommandScope.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Command\bgle.CQRS.CommandBus\bgle.CQRS.CommandBus.csproj">
+    <ProjectReference Include="..\..\Command\bgle.CQRS.CommandDispatcher\bgle.CQRS.CommandDispatcher.csproj">
       <Project>{E129EDC4-D3DE-411E-B62F-AB18CBEF1993}</Project>
-      <Name>bgle.CQRS.CommandBus</Name>
+      <Name>bgle.CQRS.CommandDispatcher</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Command\bgle.CQRS.CommandHandler\bgle.CQRS.CommandHandler.csproj">
       <Project>{22B4587F-736E-47AE-AB02-DE9949467C21}</Project>

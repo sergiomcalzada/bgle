@@ -1,11 +1,12 @@
-﻿using bgle.Contracts.Specifications;
+﻿using System.Linq;
+
+using bgle.Contracts.Specifications;
 using bgle.Contracts.UnitOfWork;
 using bgle.Entity;
 
 namespace bgle.Contracts.Repository
 {
     public interface IRepository
-
     {
         IUnitOfWork UnitOfWork { get; }
 
@@ -22,5 +23,7 @@ namespace bgle.Contracts.Repository
         TEntity Single<TEntity>(ISpecification<TEntity> criteria) where TEntity : class, IEntity;
 
         bool Any<TEntity>(ISpecification<TEntity> specification) where TEntity : class, IEntity;
+
+        IQueryable<TEntity> Where<TEntity>(ISpecification<TEntity> specification) where TEntity : class, IEntity;
     }
 }

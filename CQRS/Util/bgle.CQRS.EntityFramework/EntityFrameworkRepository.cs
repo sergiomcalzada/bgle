@@ -9,7 +9,6 @@ using bgle.Entity;
 namespace bgle.CQRS.EntityFramework
 {
     public class EntityFrameworkRepository : IRepository
-
     {
         private readonly DbContext dbContext;
 
@@ -48,17 +47,17 @@ namespace bgle.CQRS.EntityFramework
 
         public TEntity Single<TEntity>(ISpecification<TEntity> criteria) where TEntity : class, IEntity
         {
-            return this.SatisfyingEntitiesFrom(criteria).Single();
+            return this.Where(criteria).Single();
         }
 
         public bool Any<TEntity>(ISpecification<TEntity> specification) where TEntity : class, IEntity
         {
-            return this.SatisfyingEntitiesFrom(specification).Any();
+            return this.Where(specification).Any();
         }
 
-        private IQueryable<TEntity> SatisfyingEntitiesFrom<TEntity>(ISpecification<TEntity> criteria) where TEntity : class, IEntity
+        public IQueryable<TEntity> Where<TEntity>(ISpecification<TEntity> specification) where TEntity : class, IEntity
         {
-            return criteria.SatisfyingEntitiesFrom(this.GetSet<TEntity>());
+            return specification.SatisfyingEntitiesFrom(this.GetSet<TEntity>());
         }
 
         private DbSet<TEntity> GetSet<TEntity>() where TEntity : class, IEntity

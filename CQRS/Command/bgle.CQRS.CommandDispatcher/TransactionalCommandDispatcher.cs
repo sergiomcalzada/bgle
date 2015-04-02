@@ -8,24 +8,24 @@ using bgle.CQRS.CommandHandler;
 
 namespace bgle.CQRS.CommandBus
 {
-    public class TransactionalCommandBus : CommandBus
+    public class TransactionalCommandDispatcher : CommandDispatcher
     {
         private readonly IScopedCommandHandlerFactory factory;
 
         private IUnitOfWork unitOfWork;
 
-        public TransactionalCommandBus(IScopedCommandHandlerFactory factory)
+        public TransactionalCommandDispatcher(IScopedCommandHandlerFactory factory)
             : base(factory)
         {
             this.factory = factory;
         }
 
-        public override ValidationResultCollection Submit<TCommand>(TCommand command)
+        public override ValidationResultCollection Dispatch<TCommand>(TCommand command)
         {
             using (var scope = this.factory.BeginScope())
             {
                 this.unitOfWork = scope.UnitOfWork;
-                return base.Submit(command);
+                return base.Dispatch(command);
             }
         }
 

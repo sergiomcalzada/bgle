@@ -8,9 +8,9 @@ using bgle.CQRS.CommandValidationHandler;
 
 namespace bgle.CQRS.CommandBus
 {
-    public abstract class BaseCommandBus : ICommandBus
+    public abstract class BaseCommandDispatcher : ICommandDispatcher
     {
-        public virtual ValidationResultCollection Submit<TCommand>(TCommand command) where TCommand : class, IValidatableCommand
+        public virtual ValidationResultCollection Dispatch<TCommand>(TCommand command) where TCommand : class, IValidatableCommand
         {
             if (command == null)
             {
@@ -29,7 +29,7 @@ namespace bgle.CQRS.CommandBus
 
         public virtual async Task<ValidationResultCollection> SubmitAsync<TCommand>(TCommand command) where TCommand : class, IValidatableCommand
         {
-            return await Task.Factory.StartNew(() => this.Submit(command));
+            return await Task.Factory.StartNew(() => this.Dispatch(command));
         }
 
         protected ValidationResultCollection Validate<TCommand>(TCommand command) where TCommand : IValidatableCommand
