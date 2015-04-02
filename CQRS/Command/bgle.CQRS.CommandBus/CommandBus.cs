@@ -1,4 +1,5 @@
-﻿using bgle.CQRS.CommandHandler;
+﻿using bgle.CQRS.CommandBus.Factory;
+using bgle.CQRS.CommandHandler;
 using bgle.CQRS.CommandValidationHandler;
 
 namespace bgle.CQRS.CommandBus

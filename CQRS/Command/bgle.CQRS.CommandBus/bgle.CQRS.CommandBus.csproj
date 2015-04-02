@@ -45,8 +45,8 @@
     <Compile Include="BaseCommandBus.cs" />
     <Compile Include="CommandBus.cs" />
     <Compile Include="ICommandBus.cs" />
-    <Compile Include="ICommandHandlerFactory.cs" />
-    <Compile Include="IScopedCommandHandlerFactory.cs" />
+    <Compile Include="Factory\ICommandHandlerFactory.cs" />
+    <Compile Include="Factory\IScopedCommandHandlerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionalCommandBus.cs" />
   </ItemGroup>

@@ -42,7 +42,10 @@
     <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
+    <Compile Include="BaseEventStore.cs" />
     <Compile Include="EmptyEventStore.cs" />
+    <Compile Include="EventStore.cs" />
+    <Compile Include="Factory\IEventHandlerFactory.cs" />
     <Compile Include="IEventStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

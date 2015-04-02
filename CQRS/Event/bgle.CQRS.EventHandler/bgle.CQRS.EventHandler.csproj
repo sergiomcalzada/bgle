@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
     <Compile Include="EntityEventHandler.cs" />
     <Compile Include="BaseEventHandler.cs" />
     <Compile Include="IEventHandler.cs" />
@@ -53,6 +56,9 @@
       <Project>{63A27E75-338E-4442-8B34-372A4294CECC}</Project>
       <Name>bgle.CQRS.Event</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bgle.CQRS.EventHandler.csproj.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
