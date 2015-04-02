@@ -44,8 +44,6 @@
     </Compile>
     <Compile Include="BaseCommandHandler.cs" />
     <Compile Include="BaseEventStorerCommandHandler.cs" />
-    <Compile Include="CommandLogger\EmptyCommandLogger.cs" />
-    <Compile Include="CommandLogger\ICommandLogger.cs" />
     <Compile Include="Entity\DeleteCommandHandler.cs" />
     <Compile Include="Entity\EntityCommandHandler.cs" />
     <Compile Include="Entity\UpsertCommandHandler.cs" />

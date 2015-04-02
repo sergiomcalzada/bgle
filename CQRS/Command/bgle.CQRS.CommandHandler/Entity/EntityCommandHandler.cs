@@ -3,7 +3,6 @@ using bgle.Contracts.Repository;
 using bgle.Contracts.Specifications;
 using bgle.Contracts.Specifications.Entity;
 using bgle.CQRS.Command;
-using bgle.CQRS.CommandHandler.CommandLogger;
 using bgle.CQRS.Event;
 using bgle.CQRS.EventPublisher;
 using bgle.Entity;
@@ -15,12 +14,16 @@ namespace bgle.CQRS.CommandHandler
     {
         protected readonly IRepository Repository;
 
+        protected readonly IDateTimeProvider DateTimeProvider;
+
+
         private TEntity entity;
 
-        protected EntityCommandHandler(IEventStore eventStore, IRepository repository, IDateTimeProvider dateTimeProvider, ICommandLogger commandLogger)
-            : base(eventStore, dateTimeProvider, commandLogger)
+        protected EntityCommandHandler(IEventStore eventStore, IRepository repository, IDateTimeProvider dateTimeProvider)
+            : base(eventStore)
         {
             this.Repository = repository;
+            this.DateTimeProvider = dateTimeProvider;
         }
 
         protected override void Given(TCommand command)

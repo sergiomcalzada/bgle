@@ -1,25 +1,19 @@
 using System;
 
-using bgle.Contracts.DateTimeHandling;
 using bgle.CQRS.Command;
-using bgle.CQRS.CommandHandler.CommandLogger;
 using bgle.CQRS.Event;
 using bgle.CQRS.EventPublisher;
 
 namespace bgle.CQRS.CommandHandler
 {
     public abstract class GivenDoPublishCommandHandler<TCommand, TEvent> : BaseEventStorerCommandHandler<TCommand, TEvent>
-        where TCommand : ICommand where TEvent : class, IEvent
+        where TCommand : ICommand
+        where TEvent : class, IEvent
     {
-        protected readonly IDateTimeProvider DateTimeProvider;
 
-        private readonly ICommandLogger commandLogger;
-
-        protected GivenDoPublishCommandHandler(IEventStore eventStore, IDateTimeProvider dateTimeProvider, ICommandLogger commandLogger)
+        protected GivenDoPublishCommandHandler(IEventStore eventStore)
             : base(eventStore)
         {
-            this.DateTimeProvider = dateTimeProvider;
-            this.commandLogger = commandLogger;
         }
 
         protected override void BeforeHandle(TCommand command)
@@ -36,7 +30,6 @@ namespace bgle.CQRS.CommandHandler
         protected override void AfterHandle(TCommand command)
         {
             this.Publish();
-            this.LogCommand(command);
         }
 
         protected TEvent CreateEvent(TCommand command)
@@ -52,10 +45,6 @@ namespace bgle.CQRS.CommandHandler
             return @event;
         }
 
-        protected virtual void LogCommand(TCommand command)
-        {
-            this.commandLogger.Log(command);
-        }
 
         protected abstract void Given(TCommand command);
 
