@@ -54,7 +54,12 @@
     <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
+    <Compile Include="Bulk\BulkInsertProvider.cs" />
+    <Compile Include="Bulk\BulkUpdateProvider.cs" />
     <Compile Include="Bulk\MappedDataReader.cs" />
+    <Compile Include="Bulk\Sql\SqlBulkInsertProvider.cs" />
+    <Compile Include="Bulk\BulkProvider.cs" />
+    <Compile Include="Bulk\Sql\SqlBulkUpdateProvider.cs" />
     <Compile Include="Conventions\StringUidConvention.cs" />
     <Compile Include="Conventions\UnicodeConvention.cs" />
     <Compile Include="Conventions\UniqueConvention.cs" />
