@@ -5,7 +5,7 @@ using System.Linq;
 
 using bgle.ComponentModel.DataAnnotations;
 
-namespace bgle.CQRS.EntityFramework.Conventions
+namespace bgle.EntityFramework.Conventions
 {
     public class UniqueConvention : Convention
     {

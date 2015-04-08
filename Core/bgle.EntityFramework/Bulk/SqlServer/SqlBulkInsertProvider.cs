@@ -2,7 +2,7 @@ using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace bgle.CQRS.EntityFramework.Bulk.Sql
+namespace bgle.EntityFramework.Bulk.SqlServer
 {
     public class SqlBulkInsertProvider : BulkInsertProvider<SqlTransaction>
     {

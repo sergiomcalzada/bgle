@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace bgle.CQRS.EntityFramework.Resorces {
+namespace bgle.EntityFramework.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace bgle.CQRS.EntityFramework.Resorces {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("bgle.CQRS.EntityFramework.Resorces.ErrorMessages", typeof(ErrorMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("bgle.EntityFramework.Resources.ErrorMessages", typeof(ErrorMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -5,7 +5,7 @@ using System.Linq;
 
 using EntityFramework.MappingAPI;
 
-namespace bgle.CQRS.EntityFramework.Bulk
+namespace bgle.EntityFramework.Bulk
 {
     public class MappedDataReader<T> : IDataReader
         where T : class
@@ -66,7 +66,7 @@ namespace bgle.CQRS.EntityFramework.Bulk
 
         public bool IsDBNull(int i)
         {
-            return GetValue(i) == null;
+            return this.GetValue(i) == null;
         }
 
         public string GetName(int i)

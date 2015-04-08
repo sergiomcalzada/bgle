@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 using EntityFramework.MappingAPI.Extensions;
 
-namespace bgle.CQRS.EntityFramework.Bulk
+namespace bgle.EntityFramework.Bulk
 {
     public abstract class BulkInsertProvider<TTransaction> : BulkProvider
         where TTransaction : class, IDbTransaction
@@ -25,7 +25,7 @@ namespace bgle.CQRS.EntityFramework.Bulk
             var sqlTransaction = transaction as TTransaction;
             if (sqlTransaction == null)
             {
-                throw new NotSupportedException("Bulk updates are only supported on SQL Server");
+                throw new NotSupportedException(string.Format("Bulk inserts are not supported in {0}", typeof(TTransaction).FullName));
             }
             this.Run(entities, sqlTransaction);
         }

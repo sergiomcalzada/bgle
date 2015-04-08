@@ -6,7 +6,7 @@ using System.Data.Entity.Core.EntityClient;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
 
-namespace bgle.CQRS.EntityFramework.Bulk
+namespace bgle.EntityFramework.Bulk
 {
     public abstract class BulkProvider
     {

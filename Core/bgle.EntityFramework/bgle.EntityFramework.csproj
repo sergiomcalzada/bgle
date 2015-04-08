@@ -7,8 +7,8 @@
     <ProjectGuid>{84ADBFFB-AFB1-4E26-9732-6B699D4B3EE7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>bgle.CQRS.EntityFramework</RootNamespace>
-    <AssemblyName>bgle.CQRS.EntityFramework</AssemblyName>
+    <RootNamespace>bgle.EntityFramework</RootNamespace>
+    <AssemblyName>bgle.EntityFramework</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
@@ -33,13 +33,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.MappingAPI">
-      <HintPath>..\..\..\packages\EntityFramework.MappingAPI.6.1.0.9\lib\net45\EntityFramework.MappingAPI.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.MappingAPI.6.1.0.9\lib\net45\EntityFramework.MappingAPI.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -51,22 +51,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
+    <Compile Include="..\..\AssemblyInfo\AssemblyVersion.cs">
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
     <Compile Include="Bulk\BulkInsertProvider.cs" />
     <Compile Include="Bulk\BulkUpdateProvider.cs" />
     <Compile Include="Bulk\MappedDataReader.cs" />
-    <Compile Include="Bulk\Sql\SqlBulkInsertProvider.cs" />
+    <Compile Include="Bulk\SqlServer\SqlBulkInsertProvider.cs" />
     <Compile Include="Bulk\BulkProvider.cs" />
-    <Compile Include="Bulk\Sql\SqlBulkUpdateProvider.cs" />
+    <Compile Include="Bulk\SqlServer\SqlBulkUpdateProvider.cs" />
     <Compile Include="Conventions\StringUidConvention.cs" />
     <Compile Include="Conventions\UnicodeConvention.cs" />
     <Compile Include="Conventions\UniqueConvention.cs" />
     <Compile Include="EntityFrameworkRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EntityFrameworkUnitOfWork.cs" />
-    <Compile Include="Resorces\ErrorMessages.Designer.cs">
+    <Compile Include="Resources\ErrorMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ErrorMessages.resx</DependentUpon>
@@ -77,17 +77,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\bgle.core\bgle.core.csproj">
+    <ProjectReference Include="..\bgle.core\bgle.core.csproj">
       <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
       <Name>bgle.core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\bgle.Extensions\bgle.Extensions.csproj">
+    <ProjectReference Include="..\bgle.Extensions\bgle.Extensions.csproj">
       <Project>{30790f1e-ce43-44b8-a127-1ba85611184c}</Project>
       <Name>bgle.Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resorces\ErrorMessages.resx">
+    <EmbeddedResource Include="Resources\ErrorMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>

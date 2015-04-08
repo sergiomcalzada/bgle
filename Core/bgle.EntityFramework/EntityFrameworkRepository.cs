@@ -6,7 +6,7 @@ using bgle.Contracts.Specifications;
 using bgle.Contracts.UnitOfWork;
 using bgle.Entity;
 
-namespace bgle.CQRS.EntityFramework
+namespace bgle.EntityFramework
 {
     public class EntityFrameworkRepository : IRepository
     {

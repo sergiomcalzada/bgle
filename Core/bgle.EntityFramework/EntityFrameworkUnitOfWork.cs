@@ -5,9 +5,9 @@ using System.Data.Entity;
 
 using bgle.Contracts.Repository;
 using bgle.Contracts.UnitOfWork;
-using bgle.CQRS.EntityFramework.Resorces;
+using bgle.EntityFramework.Resources;
 
-namespace bgle.CQRS.EntityFramework
+namespace bgle.EntityFramework
 {
     public class EntityFrameworkUnitOfWork : IUnitOfWork
     {
@@ -39,7 +39,7 @@ namespace bgle.CQRS.EntityFramework
             {
                 throw new ApplicationException(ErrorMessages.AlreadyRunningTransaction);
             }
-            OpenConnection();
+            this.OpenConnection();
             this.transaction = this.context.Database.BeginTransaction(isolationLevel);
         }
 
@@ -53,11 +53,11 @@ namespace bgle.CQRS.EntityFramework
             try
             {
                 this.transaction.Commit();
-                ReleaseCurrentTransaction();
+                this.ReleaseCurrentTransaction();
             }
             catch
             {
-                RollBackTransaction();
+                this.RollBackTransaction();
                 throw;
             }
         }
@@ -109,20 +109,20 @@ namespace bgle.CQRS.EntityFramework
 
         public void Dispose()
         {
-            Dispose(true);
+            this.Dispose(true);
             GC.SuppressFinalize(this);
         }
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposed)
+            if (!this.disposed)
             {
                 if (disposing)
                 {
                     this.CloseConnection();
                 }
             }
-            disposed = true;
+            this.disposed = true;
         }
 
         #endregion

@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 using EntityFramework.MappingAPI;
 
-namespace bgle.CQRS.EntityFramework.Bulk.Sql
+namespace bgle.EntityFramework.Bulk.SqlServer
 {
     public class SqlBulkUpdateProvider : BulkUpdateProvider<SqlTransaction>
     {
