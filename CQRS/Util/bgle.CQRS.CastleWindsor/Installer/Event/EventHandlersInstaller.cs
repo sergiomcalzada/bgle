@@ -1,7 +1,7 @@
 using System;
 
 using bgle.CQRS.EventHandler;
-using bgle.CQRS.EventPublisher.Factory;
+using bgle.CQRS.EventStore.Factory;
 
 using Castle.Facilities.TypedFactory;
 using Castle.MicroKernel.Registration;

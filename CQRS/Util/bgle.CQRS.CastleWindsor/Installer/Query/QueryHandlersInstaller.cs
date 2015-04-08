@@ -1,8 +1,5 @@
 using System;
 
-using bgle.CastleWindsor.Scope;
-using bgle.CQRS.CommandBus.Factory;
-using bgle.CQRS.CommandHandler;
 using bgle.CQRS.QueryDispatcher.Factory;
 using bgle.CQRS.QueryHandler;
 
@@ -24,8 +21,7 @@ namespace bgle.CastleWindsor.Installer.Query
 
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(
-                Classes.FromAssemblyContaining(this.queryHandlerType).BasedOn(typeof(IQueryHandler<,>)).WithServiceBase().LifestyleTransient(),
+            container.Register(Classes.FromAssemblyContaining(this.queryHandlerType).BasedOn(typeof(IQueryHandler<,>)).WithServiceBase().LifestyleTransient(),
                 Component.For<IQueryHandlerFactory>().AsFactory().LifestyleTransient());
         }
     }

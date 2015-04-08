@@ -9,9 +9,7 @@ namespace bgle.EntityFramework.Conventions
     {
         public UnicodeConvention()
         {
-            this.Properties<string>()
-                .Having(x => x.GetCustomAttributes(false).OfType<UnicodeAttribute>().FirstOrDefault())
-                .Configure((cfg, att) => cfg.IsUnicode(att.Unicode));
+            this.Properties<string>().Having(x => x.GetCustomAttributes(false).OfType<UnicodeAttribute>().FirstOrDefault()).Configure((cfg, att) => cfg.IsUnicode(att.Unicode));
         }
     }
 }

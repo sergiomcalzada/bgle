@@ -107,6 +107,14 @@
       <Project>{A6960244-D848-4120-A60B-8E68FDEBCB80}</Project>
       <Name>bgle.CQRS.QueryHandler</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Query\bgle.CQRS.QueryResult\bgle.CQRS.QueryResult.csproj">
+      <Project>{38348fb3-b096-4744-bb26-a08879826bb3}</Project>
+      <Name>bgle.CQRS.QueryResult</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Query\bgle.CQRS.Query\bgle.CQRS.Query.csproj">
+      <Project>{ffe1622c-ad73-4e87-afef-3643f1d344c0}</Project>
+      <Name>bgle.CQRS.Query</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

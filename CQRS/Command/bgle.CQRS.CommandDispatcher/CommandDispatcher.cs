@@ -1,8 +1,8 @@
-﻿using bgle.CQRS.CommandBus.Factory;
+﻿using bgle.CQRS.CommandDispatcher.Factory;
 using bgle.CQRS.CommandHandler;
 using bgle.CQRS.CommandValidationHandler;
 
-namespace bgle.CQRS.CommandBus
+namespace bgle.CQRS.CommandDispatcher
 {
     public class CommandDispatcher : BaseCommandDispatcher
     {

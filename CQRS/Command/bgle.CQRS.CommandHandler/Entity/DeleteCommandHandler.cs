@@ -2,7 +2,7 @@ using bgle.Contracts.DateTimeHandling;
 using bgle.Contracts.Repository;
 using bgle.CQRS.Command;
 using bgle.CQRS.Event;
-using bgle.CQRS.EventPublisher;
+using bgle.CQRS.EventStore;
 using bgle.Entity;
 
 namespace bgle.CQRS.CommandHandler

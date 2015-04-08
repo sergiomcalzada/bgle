@@ -4,7 +4,7 @@ using bgle.CQRS.Command;
 using bgle.CQRS.CommandHandler;
 using bgle.CQRS.CommandValidationHandler;
 
-namespace bgle.CQRS.CommandBus.Factory
+namespace bgle.CQRS.CommandDispatcher.Factory
 {
     public interface ICommandHandlerFactory : IDisposable
     {

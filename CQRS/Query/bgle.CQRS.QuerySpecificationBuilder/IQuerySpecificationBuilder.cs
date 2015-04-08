@@ -5,8 +5,7 @@ using bgle.Entity;
 namespace bgle.CQRS.QuerySpecificationBuilder
 {
     public interface IQuerySpecificationBuilder<in TQuery, TEntity>
-        where TQuery : IQuery
-        where TEntity : IEntity
+        where TQuery : IQuery where TEntity : IEntity
     {
         ISpecification<TEntity> Build(TQuery query);
     }

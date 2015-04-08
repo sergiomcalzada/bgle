@@ -3,7 +3,7 @@
 using bgle.CQRS.Event;
 using bgle.CQRS.EventHandler;
 
-namespace bgle.CQRS.EventPublisher.Factory
+namespace bgle.CQRS.EventStore.Factory
 {
     public interface IEventHandlerFactory : IDisposable
     {

@@ -17,7 +17,6 @@ namespace bgle.CQRS.QueryHandler
         where TQuerySpecificationBuilder : IQuerySpecificationBuilder<TQuery, TEntity>, new()
         where TQueryResultBuilder : IQueryResultBuilder<TQueryResult, TEntity>, new()
     {
-
         protected SingleEntitySpecificationQueryHandler(IRepository repository)
             : base(repository)
         {

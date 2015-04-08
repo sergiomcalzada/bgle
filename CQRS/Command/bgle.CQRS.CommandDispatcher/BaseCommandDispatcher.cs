@@ -6,7 +6,7 @@ using bgle.CQRS.Command;
 using bgle.CQRS.CommandHandler;
 using bgle.CQRS.CommandValidationHandler;
 
-namespace bgle.CQRS.CommandBus
+namespace bgle.CQRS.CommandDispatcher
 {
     public abstract class BaseCommandDispatcher : ICommandDispatcher
     {

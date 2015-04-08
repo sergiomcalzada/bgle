@@ -19,7 +19,6 @@ namespace bgle.CQRS.QueryHandler
         where TQuerySpecificationBuilder : IQuerySpecificationBuilder<TQuery, TEntity>, new()
         where TQueryResultBuilder : IQueryResultBuilder<TQueryResultItem, TEntity>, new()
     {
-
         protected MiltipleEntitySpecificationQueryHandler(IRepository repository)
             : base(repository)
         {
@@ -33,7 +32,6 @@ namespace bgle.CQRS.QueryHandler
 
         protected virtual TQueryResult Materialize(IEnumerable<TEntity> entities, TQuery query)
         {
-            
             var builder = new TQueryResultBuilder();
             var result = new TQueryResult();
             result.AddRange(entities.Select(builder.Build));

@@ -1,6 +1,6 @@
 using bgle.CQRS.Command;
 using bgle.CQRS.Event;
-using bgle.CQRS.EventPublisher;
+using bgle.CQRS.EventStore;
 
 namespace bgle.CQRS.CommandHandler
 {

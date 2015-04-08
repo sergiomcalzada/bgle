@@ -4,8 +4,7 @@ using bgle.CQRS.QueryResult;
 namespace bgle.CQRS.QueryHandler
 {
     public abstract class BaseQueryHandler<TQuery, TQueryResult> : IQueryHandler<TQuery, TQueryResult>
-        where TQuery : IQuery
-        where TQueryResult : IQueryResult
+        where TQuery : IQuery where TQueryResult : IQueryResult
     {
         public TQueryResult Handle(TQuery query)
         {

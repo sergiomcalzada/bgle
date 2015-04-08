@@ -2,15 +2,13 @@ using System;
 
 using bgle.CQRS.Command;
 using bgle.CQRS.Event;
-using bgle.CQRS.EventPublisher;
+using bgle.CQRS.EventStore;
 
 namespace bgle.CQRS.CommandHandler
 {
     public abstract class GivenDoPublishCommandHandler<TCommand, TEvent> : BaseEventStorerCommandHandler<TCommand, TEvent>
-        where TCommand : ICommand
-        where TEvent : class, IEvent
+        where TCommand : ICommand where TEvent : class, IEvent
     {
-
         protected GivenDoPublishCommandHandler(IEventStore eventStore)
             : base(eventStore)
         {
@@ -44,7 +42,6 @@ namespace bgle.CQRS.CommandHandler
             var @event = Activator.CreateInstance<TEvent>();
             return @event;
         }
-
 
         protected abstract void Given(TCommand command);
 

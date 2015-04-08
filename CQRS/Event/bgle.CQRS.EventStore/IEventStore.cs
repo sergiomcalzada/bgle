@@ -1,6 +1,6 @@
 ﻿using bgle.CQRS.Event;
 
-namespace bgle.CQRS.EventPublisher
+namespace bgle.CQRS.EventStore
 {
     public interface IEventStore
     {

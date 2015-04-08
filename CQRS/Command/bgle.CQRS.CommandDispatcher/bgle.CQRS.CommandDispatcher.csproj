@@ -7,8 +7,8 @@
     <ProjectGuid>{E129EDC4-D3DE-411E-B62F-AB18CBEF1993}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>bgle.CQRS.CommandBus</RootNamespace>
-    <AssemblyName>bgle.CQRS.CommandBus</AssemblyName>
+    <RootNamespace>bgle.CQRS.CommandDispatcher</RootNamespace>
+    <AssemblyName>bgle.CQRS.CommandDispatcher</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

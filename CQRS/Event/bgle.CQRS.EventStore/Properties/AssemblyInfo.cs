@@ -1,4 +1,4 @@
 ﻿using System.Reflection;
 
-[assembly: AssemblyTitle("bgle.CQRS.EventPublisher")]
-[assembly: AssemblyDescription("CQRS event publisher")]
+[assembly: AssemblyTitle("bgle.CQRS.EventStore")]
+[assembly: AssemblyDescription("CQRS event store")]

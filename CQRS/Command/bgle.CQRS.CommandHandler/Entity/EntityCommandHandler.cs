@@ -4,7 +4,7 @@ using bgle.Contracts.Specifications;
 using bgle.Contracts.Specifications.Entity;
 using bgle.CQRS.Command;
 using bgle.CQRS.Event;
-using bgle.CQRS.EventPublisher;
+using bgle.CQRS.EventStore;
 using bgle.Entity;
 
 namespace bgle.CQRS.CommandHandler
@@ -12,10 +12,9 @@ namespace bgle.CQRS.CommandHandler
     public abstract class EntityCommandHandler<TCommand, TEntity, TKey, TEvent> : GivenDoPublishCommandHandler<TCommand, TEvent>
         where TCommand : IEntityCommand<TKey> where TEntity : class, IEntity<TKey> where TEvent : class, IEntityEvent<TKey>
     {
-        protected readonly IRepository Repository;
-
         protected readonly IDateTimeProvider DateTimeProvider;
 
+        protected readonly IRepository Repository;
 
         private TEntity entity;
 

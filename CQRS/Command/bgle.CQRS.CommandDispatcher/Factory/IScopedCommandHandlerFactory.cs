@@ -1,6 +1,6 @@
 ﻿using bgle.CQRS.CommandHandler;
 
-namespace bgle.CQRS.CommandBus.Factory
+namespace bgle.CQRS.CommandDispatcher.Factory
 {
     public interface IScopedCommandHandlerFactory : ICommandHandlerFactory
     {

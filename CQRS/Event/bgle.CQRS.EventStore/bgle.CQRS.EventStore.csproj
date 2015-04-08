@@ -7,8 +7,8 @@
     <ProjectGuid>{374799DB-FFB7-4F76-928F-4750EBB5A85B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>bgle.CQRS.EventPublisher</RootNamespace>
-    <AssemblyName>bgle.CQRS.EventPublisher</AssemblyName>
+    <RootNamespace>bgle.CQRS.EventStore</RootNamespace>
+    <AssemblyName>bgle.CQRS.EventStore</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

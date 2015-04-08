@@ -1,7 +1,7 @@
 ﻿using bgle.CQRS.EventHandler;
-using bgle.CQRS.EventPublisher.Factory;
+using bgle.CQRS.EventStore.Factory;
 
-namespace bgle.CQRS.EventPublisher
+namespace bgle.CQRS.EventStore
 {
     public class EventStore : BaseEventStore
     {

@@ -3,10 +3,10 @@ using System.Threading.Tasks;
 
 using bgle.ComponentModel.DataAnnotations;
 using bgle.Contracts.UnitOfWork;
-using bgle.CQRS.CommandBus.Factory;
+using bgle.CQRS.CommandDispatcher.Factory;
 using bgle.CQRS.CommandHandler;
 
-namespace bgle.CQRS.CommandBus
+namespace bgle.CQRS.CommandDispatcher
 {
     public class TransactionalCommandDispatcher : CommandDispatcher
     {

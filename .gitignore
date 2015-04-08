@@ -139,6 +139,9 @@ publish/
 !**/packages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/packages/repositories.config
+#Generated packages folder
+**/generated-packages/*
+*.nuspec
 
 # Windows Azure Build Output
 csx/

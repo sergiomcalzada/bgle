@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using bgle.CQRS.Event;
 using bgle.CQRS.EventHandler;
 
-namespace bgle.CQRS.EventPublisher
+namespace bgle.CQRS.EventStore
 {
     public abstract class BaseEventStore : IEventStore
     {

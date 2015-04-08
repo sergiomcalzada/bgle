@@ -8,10 +8,7 @@ using bgle.Entity;
 namespace bgle.CQRS.QueryHandler
 {
     public abstract class EntitySpecificationQueryHandler<TQuery, TQueryResult, TEntity, TQuerySpecificationBuilder> : EntityQueryHandler<TQuery, TQueryResult, TEntity>
-        where TQuery : IQuery
-        where TQueryResult : IQueryResult
-        where TEntity : class, IEntity
-        where TQuerySpecificationBuilder : IQuerySpecificationBuilder<TQuery, TEntity>, new()
+        where TQuery : IQuery where TQueryResult : IQueryResult where TEntity : class, IEntity where TQuerySpecificationBuilder : IQuerySpecificationBuilder<TQuery, TEntity>, new()
     {
         protected ISpecification<TEntity> Specification;
 
@@ -24,6 +21,5 @@ namespace bgle.CQRS.QueryHandler
         {
             this.Specification = new TQuerySpecificationBuilder().Build(query);
         }
-
     }
 }
