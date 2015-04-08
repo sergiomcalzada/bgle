@@ -41,6 +41,9 @@
   <ItemGroup>
     <Compile Include="Entity\EntityQueryHandler.cs" />
     <Compile Include="BaseQueryHandler.cs" />
+    <Compile Include="Entity\EntitySpecificationQueryHandler.cs" />
+    <Compile Include="Entity\MiltipleEntitySpecificationQueryHandler.cs" />
+    <Compile Include="Entity\SingleEntitySpecificationQueryHandler.cs" />
     <Compile Include="IQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

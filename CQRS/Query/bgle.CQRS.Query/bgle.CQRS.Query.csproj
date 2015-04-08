@@ -39,6 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityByIdQuery.cs" />
+    <Compile Include="IDateTimeRangeQuery.cs" />
+    <Compile Include="IEntityByIdQuery.cs" />
+    <Compile Include="IPagerQuery.cs" />
     <Compile Include="IQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

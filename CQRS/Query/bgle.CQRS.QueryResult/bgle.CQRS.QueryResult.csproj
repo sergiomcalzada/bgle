@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IQueryResult.cs" />
+    <Compile Include="IQueryResultCollection.cs" />
+    <Compile Include="IQueryResultCollectionItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
