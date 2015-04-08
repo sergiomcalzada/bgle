@@ -52,13 +52,21 @@
     </Compile>
     <Compile Include="Installer\Command\CommandHandlersInstaller.cs" />
     <Compile Include="Installer\Command\CommandValidationHandlersInstaller.cs" />
+    <Compile Include="Installer\Query\QueryHandlersInstaller.cs" />
     <Compile Include="Installer\DatabaseAcessInstaller.cs" />
     <Compile Include="Installer\Event\EventHandlersInstaller.cs" />
-    <Compile Include="Lifestile\LifetimeScopeOrTransientAccessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scope\CastleWindsorCommandScope.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\bgle.CastleWindsor\bgle.CastleWindsor.csproj">
+      <Project>{050AF027-BD7D-4CD0-9E93-097584047AB1}</Project>
+      <Name>bgle.CastleWindsor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\bgle.EntityFramework\bgle.EntityFramework.csproj">
+      <Project>{84ADBFFB-AFB1-4E26-9732-6B699D4B3EE7}</Project>
+      <Name>bgle.EntityFramework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Command\bgle.CQRS.CommandDispatcher\bgle.CQRS.CommandDispatcher.csproj">
       <Project>{E129EDC4-D3DE-411E-B62F-AB18CBEF1993}</Project>
       <Name>bgle.CQRS.CommandDispatcher</Name>
@@ -90,6 +98,14 @@
     <ProjectReference Include="..\..\Event\bgle.CQRS.Event\bgle.CQRS.Event.csproj">
       <Project>{63a27e75-338e-4442-8b34-372a4294cecc}</Project>
       <Name>bgle.CQRS.Event</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Query\bgle.CQRS.QueryDispatcher\bgle.CQRS.QueryDispatcher.csproj">
+      <Project>{4B6A4DE4-7EA5-48D7-BA33-B35E9C0D587F}</Project>
+      <Name>bgle.CQRS.QueryDispatcher</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Query\bgle.CQRS.QueryHandler\bgle.CQRS.QueryHandler.csproj">
+      <Project>{A6960244-D848-4120-A60B-8E68FDEBCB80}</Project>
+      <Name>bgle.CQRS.QueryHandler</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

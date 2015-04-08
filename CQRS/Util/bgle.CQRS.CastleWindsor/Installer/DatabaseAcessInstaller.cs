@@ -3,7 +3,7 @@ using System;
 using bgle.CastleWindsor.Lifestile;
 using bgle.Contracts.Repository;
 using bgle.Contracts.UnitOfWork;
-using bgle.CQRS.EntityFramework;
+using bgle.EntityFramework;
 
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;

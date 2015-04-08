@@ -22,7 +22,8 @@ namespace bgle.CastleWindsor.Installer.Command
 
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Classes.FromAssemblyContaining(this.commandHandlerType).BasedOn(typeof(ICommandHandler<>)).WithServiceBase().LifestyleTransient(),
+            container.Register(
+                Classes.FromAssemblyContaining(this.commandHandlerType).BasedOn(typeof(ICommandHandler<>)).WithServiceBase().LifestyleTransient(),
                 Component.For<IScopedCommandHandlerFactory>().AsFactory().LifestyleTransient(),
                 Component.For<ICommandScope>().ImplementedBy<CastleWindsorCommandScope>().LifestyleTransient());
         }
