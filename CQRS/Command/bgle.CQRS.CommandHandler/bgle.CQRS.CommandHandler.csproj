@@ -53,9 +53,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bgle.CQRS.CommandHandler.csproj.nuspec" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\Core\bgle.core\bgle.core.csproj">
       <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
       <Name>bgle.core</Name>

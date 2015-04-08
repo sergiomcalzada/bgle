@@ -50,9 +50,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bgle.CQRS.EventStore.csproj.nuspec" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\bgle.CQRS.EventHandler\bgle.CQRS.EventHandler.csproj">
       <Project>{7D674D15-C24F-49F0-8EA6-FE7C9FA38D65}</Project>
       <Name>bgle.CQRS.EventHandler</Name>

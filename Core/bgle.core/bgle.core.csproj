@@ -73,9 +73,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bgle.core.csproj.nuspec" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\bgle.Extensions\bgle.Extensions.csproj">
       <Project>{30790F1E-CE43-44B8-A127-1BA85611184C}</Project>
       <Name>bgle.Extensions</Name>
