@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
     <Compile Include="Entity\EntityQueryHandler.cs" />
     <Compile Include="BaseQueryHandler.cs" />
     <Compile Include="Entity\EntitySpecificationQueryHandler.cs" />
@@ -68,6 +71,9 @@
       <Project>{FFE1622C-AD73-4E87-AFEF-3643F1D344C0}</Project>
       <Name>bgle.CQRS.Query</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bgle.CQRS.QueryHandler.csproj.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
