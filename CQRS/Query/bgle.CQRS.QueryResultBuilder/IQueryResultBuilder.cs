@@ -7,6 +7,6 @@ namespace bgle.CQRS.QueryResultBuilder
         where TQueryResult : IQueryResult
         where TEntity : IEntity
     {
-        TQueryResult Build<TQuery>(TEntity entity, TQuery query);
+        TQueryResult Build(TEntity entity);
     }
 }

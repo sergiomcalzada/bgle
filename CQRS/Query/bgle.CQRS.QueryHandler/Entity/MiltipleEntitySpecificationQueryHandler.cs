@@ -33,9 +33,10 @@ namespace bgle.CQRS.QueryHandler
 
         protected virtual TQueryResult Materialize(IEnumerable<TEntity> entities, TQuery query)
         {
+            
             var builder = new TQueryResultBuilder();
             var result = new TQueryResult();
-            result.AddRange(entities.Select(e => builder.Build(e, query)));
+            result.AddRange(entities.Select(builder.Build));
             return result;
         }
     }
