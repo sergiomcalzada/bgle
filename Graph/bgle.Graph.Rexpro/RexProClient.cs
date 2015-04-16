@@ -79,14 +79,14 @@ namespace bgle.Graph.Rexpro.Core
             //var messageBytes = BuildRequestMessageBuffer(message, out requestMessageType, out messageLength);
 
             var connection = request.Session != Guid.Empty
-                                ? connections.GetOrAdd(request.Session, _ => new TcpClient())
+                                ? connections.GetOrAdd(request.Session, _ => new TcpClient(this.host, this.port))
                                 : new TcpClient(this.host, this.port);
 
             try
             {
-                if (!connection.Connected) connection.Connect(this.host, this.port);
+                //TODO: user serializer
                 connection.Client.Send(request.ToByteArray());
-                return ParseResponse<TResponse>(connection, request.MessageType);
+                return ParseResponse<TResponse>(connection.GetStream(), request.MessageType);
             }
             finally
             {
@@ -97,7 +97,7 @@ namespace bgle.Graph.Rexpro.Core
             }
         }
 
-        private T ParseResponse<T>(TcpClient connection, MessageType requestMessageType)
+        private T ParseResponse<T>(Stream networkStream, MessageType requestMessageType)
             where T : RexProMessage
         {
             T result;
@@ -105,7 +105,6 @@ namespace bgle.Graph.Rexpro.Core
 
             var headerBytes = new byte[RexProMessage.MESSAGE_HEADER_SIZE];
             var bytesRead = 0;
-            var networkStream = connection.GetStream();
 
             while (bytesRead != RexProMessage.MESSAGE_HEADER_SIZE)
             {
