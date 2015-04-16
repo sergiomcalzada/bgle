@@ -2,7 +2,7 @@
 {
     public static class DictionaryExtensions
     {
-        public static TValue Get<TKey, TValue>(this IDictionary<TKey, TValue> dic, TKey key, Func<TValue> nullValue)
+        public static TValue Get<TKey, TValue>(this Dictionary<TKey, TValue> dic, TKey key, Func<TValue> nullValue)
         {
             return dic.ContainsKey(key) ? dic[key] : nullValue();
         }

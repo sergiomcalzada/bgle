@@ -65,6 +65,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bgle.EntityFramework", "Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bgle.CastleWindsor", "Core\bgle.CastleWindsor\bgle.CastleWindsor.csproj", "{050AF027-BD7D-4CD0-9E93-097584047AB1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Graph", "Graph", "{AAB6FEED-5331-441C-9A67-329A493331E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bgle.Graph.Rexpro", "Graph\bgle.Graph.Rexpro\bgle.Graph.Rexpro.csproj", "{4186BE00-53EE-4681-B194-70F141B1B379}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +151,10 @@ Global
 		{050AF027-BD7D-4CD0-9E93-097584047AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{050AF027-BD7D-4CD0-9E93-097584047AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{050AF027-BD7D-4CD0-9E93-097584047AB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4186BE00-53EE-4681-B194-70F141B1B379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4186BE00-53EE-4681-B194-70F141B1B379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4186BE00-53EE-4681-B194-70F141B1B379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4186BE00-53EE-4681-B194-70F141B1B379}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -175,5 +183,6 @@ Global
 		{37D8CF2C-1868-42F2-859A-A26347EBC4E2} = {05361E7F-C31E-4E4C-B4D0-AEECD4156904}
 		{84ADBFFB-AFB1-4E26-9732-6B699D4B3EE7} = {3CA4ACFA-DC95-4E6F-9E8E-37B3B3D2EFAB}
 		{050AF027-BD7D-4CD0-9E93-097584047AB1} = {3CA4ACFA-DC95-4E6F-9E8E-37B3B3D2EFAB}
+		{4186BE00-53EE-4681-B194-70F141B1B379} = {AAB6FEED-5331-441C-9A67-329A493331E2}
 	EndGlobalSection
 EndGlobal
