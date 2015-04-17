@@ -4,10 +4,10 @@ namespace bgle.Graph.Rexpro.protocol.msg
 {
     public class ScriptResponseMessage : RexProResponseMessage<ScriptResponseMessageMeta>
     {
-        private static readonly MsgPackResultConverter Converter = new MsgPackResultConverter();
+        
 
-        public RexProScriptResult Result = new RexProScriptResult();
-        public RexProBindings Bindings = new RexProBindings();
+        public RexProScriptResult Result { get; set; }
+        public RexProBindings Bindings { get; set; }
 
         public ScriptResponseMessage()
             : base(new ScriptResponseMessageMeta(), MessageType.ScriptResponse)
@@ -17,12 +17,11 @@ namespace bgle.Graph.Rexpro.protocol.msg
         public override void Build(object[] response)
         {
             base.Build(response);
+            this.Result = (RexProScriptResult)response[3];
+            this.Bindings = (RexProBindings)response[4];
         }
 
-        public static byte[] ConvertResultToBytes(object result)
-        {
-            return Converter.Convert(result);
-        }
+        
     }
 
     public class ScriptResponseMessageMeta : IRexProResponseMessageMeta

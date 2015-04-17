@@ -6,7 +6,7 @@ namespace bgle.Graph.Rexpro.protocol.msg
 {
     public class SessionResponseMessage : RexProResponseMessage<SessionResponseMessageMeta>
     {
-        public String[] Languages;
+        public string[] Languages;
 
         public SessionResponseMessage()
             : base(new SessionResponseMessageMeta(), MessageType.SessionResponse)
@@ -17,8 +17,7 @@ namespace bgle.Graph.Rexpro.protocol.msg
         public override void Build(object[] response)
         {
             base.Build(response);
-            var languages = (System.Collections.IEnumerable)response[3];
-            this.Languages = (from object language in languages select language.ToString()).ToArray();
+            this.Languages =  (string[])response[3];
         }
     }
 

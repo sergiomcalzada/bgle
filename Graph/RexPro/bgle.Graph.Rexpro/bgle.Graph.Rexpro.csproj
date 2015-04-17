@@ -48,7 +48,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="protocol\msg\ErrorResponseMessage.cs" />
     <Compile Include="protocol\msg\MessageType.cs" />
-    <Compile Include="protocol\msg\MsgPackResultConverter.cs" />
     <Compile Include="protocol\msg\RexProBindings.cs" />
     <Compile Include="protocol\msg\RexProException.cs" />
     <Compile Include="protocol\msg\RexProMessage.cs" />

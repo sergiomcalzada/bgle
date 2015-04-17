@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 using bgle.Graph.Rexpro.protocol.msg;
@@ -24,7 +25,7 @@ namespace bgle.Graph.Rexpro.Json
 
         public byte[] Serialize<T>(T requestMessage) where T : RexProMessage
         {
-            
+
             using (var writer = new StringWriter())
             {
                 this.serializer.Serialize(writer, requestMessage.GetArray());
@@ -38,8 +39,21 @@ namespace bgle.Graph.Rexpro.Json
         public T DeSerialize<T>(byte[] headerBytes, byte[] responseBytes) where T : RexProMessage
         {
 
-            var json =this.Parse(responseBytes);
+            var json = this.Parse(responseBytes);
             var result = Activator.CreateInstance<T>();
+            if (typeof(T) == typeof(SessionResponseMessage))
+            {
+                var languages = (System.Collections.IEnumerable)json[3];
+                json[3] = (from object language in languages select language.ToString()).ToArray();
+            }
+            else if (typeof(T) == typeof(ScriptResponseMessage))
+            {
+                var scriptResult = json[3];
+                json[3] = new RexProScriptResult(scriptResult);
+
+                var scriptBindings = json[4];
+                json[4] = new RexProBindings(); //TODO: transforms bindings from response
+            }
             result.Build(json);
             return result;
         }
@@ -47,7 +61,8 @@ namespace bgle.Graph.Rexpro.Json
         public ErrorResponseMessage Error(byte[] headerBytes, byte[] responseBytes)
         {
             var json = this.Parse(responseBytes);
-            var result = new ErrorResponseMessage((ErrorResponseMessageFlag)(((dynamic)json[2]).flag));
+            json[2] = (ErrorResponseMessageFlag)(((dynamic)json[2]).flag);
+            var result = new ErrorResponseMessage();
             result.Build(json);
             return result;
 
@@ -61,7 +76,7 @@ namespace bgle.Graph.Rexpro.Json
             {
                 using (var jReader = new JsonTextReader(reader))
                 {
-                   return this.serializer.Deserialize<object[]>(jReader);
+                    return this.serializer.Deserialize<object[]>(jReader);
                 }
             }
         }

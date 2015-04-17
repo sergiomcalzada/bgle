@@ -78,7 +78,7 @@ namespace bgle.Graph.Rexpro
             session.Killed = true;
         }
 
-        public dynamic Query(string script, Dictionary<string, object> bindings = null, RexProSession session = null, bool transaction = true)
+        public RexProScriptResult Query(string script, Dictionary<string, object> bindings = null, RexProSession session = null, bool transaction = true)
         {
             var request = new ScriptRequestMessage(script, bindings);
             return this.ExecuteScript(request, session, transaction).Result;
@@ -193,7 +193,7 @@ namespace bgle.Graph.Rexpro
                     throw new RexProErrorException(error.ErrorMessage, error);
                 }
 
-                if (requestMessageType != expectedResponseMessageType)
+                if (responseMessageType != expectedResponseMessageType)
                 {
                     throw new RexProException("Invalid response message type.");
                 }

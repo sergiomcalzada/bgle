@@ -16,8 +16,8 @@
     {
         public string ErrorMessage { get; private set; }
 
-        public ErrorResponseMessage(ErrorResponseMessageFlag flag)
-            : base(new ErrorResponseMessageMeta(flag), MessageType.Error)
+        public ErrorResponseMessage()
+            : base(new ErrorResponseMessageMeta(), MessageType.Error)
         {
         }
 
@@ -25,16 +25,12 @@
         {
             base.Build(response);
             this.ErrorMessage = response[3].ToString();
+            this.Meta.Flag = (ErrorResponseMessageFlag)response[2];
         }
     }
 
     public class ErrorResponseMessageMeta : IRexProMessageMeta
     {
-        public ErrorResponseMessageFlag Flag { get; private set; }
-
-        public ErrorResponseMessageMeta(ErrorResponseMessageFlag flag)
-        {
-            this.Flag = flag;
-        }
+        public ErrorResponseMessageFlag Flag { get; set; }
     }
 }

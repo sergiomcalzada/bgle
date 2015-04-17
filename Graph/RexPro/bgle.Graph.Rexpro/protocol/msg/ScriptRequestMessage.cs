@@ -17,8 +17,9 @@ namespace bgle.Graph.Rexpro.protocol.msg
         public ScriptRequestMessage(string script, IDictionary<string, object> bindings)
             : base(new ScriptRequestMessageMeta(), MessageType.ScriptRequest)
         {
-            this.Bindings = new RexProBindings(bindings);
+            this.Bindings = bindings != null ? new RexProBindings(bindings) : new RexProBindings();
             this.Script = script;
+            this.LanguageName = "groovy";
         }
 
         public override object[] GetArray()
@@ -54,8 +55,6 @@ namespace bgle.Graph.Rexpro.protocol.msg
 
         public ScriptRequestMessageMeta()
         {
-            this.GraphName = "graph";
-            this.GraphObjName = "g";
         }
 
         
