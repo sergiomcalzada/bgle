@@ -1,4 +1,4 @@
-﻿namespace bgle.Graph.Rexpro.Core.protocol.msg
+﻿namespace bgle.Graph.Rexpro.protocol.msg
 {
     /// <summary>
     /// Values that represent standard message types for RexPro.

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace bgle.Graph.Rexpro.Core.protocol.msg
+namespace bgle.Graph.Rexpro.protocol.msg
 {
     internal class MsgPackResultConverter
     {

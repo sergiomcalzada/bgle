@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace bgle.Graph.Rexpro.Core.protocol.msg
+namespace bgle.Graph.Rexpro.protocol.msg
 {
     public class RexProBindings : Dictionary<string, object>
     {

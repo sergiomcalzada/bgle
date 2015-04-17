@@ -1,4 +1,4 @@
-﻿namespace bgle.Graph.Rexpro.Core
+﻿namespace bgle.Graph.Rexpro
 {
     public enum SerializerType : byte
     {

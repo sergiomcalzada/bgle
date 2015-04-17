@@ -1,4 +1,4 @@
-﻿namespace bgle.Graph.Rexpro.Core.protocol.msg
+﻿namespace bgle.Graph.Rexpro.protocol.msg
 {
     public class RexProScriptResult
     {
