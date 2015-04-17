@@ -187,16 +187,18 @@ namespace bgle.Graph.Rexpro
 
                 var responseBytes = stream.ToArray();
 
-                if (responseMessageType != MessageType.Error)
-                {
-                    return this.serializer.DeSerialize<T>(headerBytes, responseBytes);
-                }
-                else
+                if (responseMessageType == MessageType.Error)
                 {
                     var error = this.serializer.Error(headerBytes, responseBytes);
-                    throw new RexProErrorException("Error message", error);
+                    throw new RexProErrorException(error.ErrorMessage, error);
                 }
 
+                if (requestMessageType != expectedResponseMessageType)
+                {
+                    throw new RexProException("Invalid response message type.");
+                }
+
+                return this.serializer.DeSerialize<T>(headerBytes, responseBytes);
             }
         }
     }
