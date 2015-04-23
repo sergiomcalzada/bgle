@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace bgle.Graph.Rexpro.protocol.msg
 {
@@ -25,7 +26,7 @@ namespace bgle.Graph.Rexpro.protocol.msg
         public override object[] GetArray()
         {
             var result = base.GetArray();
-            Array.Resize(ref result, result.Length+3);
+            Array.Resize(ref result, result.Length + 3);
             result[result.Length - 3] = LanguageName;
             result[result.Length - 2] = Script;
             result[result.Length - 1] = Bindings;
@@ -53,10 +54,17 @@ namespace bgle.Graph.Rexpro.protocol.msg
         [RexProSerialize]
         public string Console { get; set; }
 
-        public ScriptRequestMessageMeta()
+        public IDictionary<string, object> AsDictionary()
         {
+            return new Dictionary<string, object>
+                       {
+                           {ExpressionExtenions.GetPropertyName(() => InSession).FirstCharacterToLower(),InSession},
+                           {ExpressionExtenions.GetPropertyName(() => Isolate).FirstCharacterToLower(),Isolate},
+                           {ExpressionExtenions.GetPropertyName(() => Transaction).FirstCharacterToLower(),Transaction},
+                           {ExpressionExtenions.GetPropertyName(() => GraphName).FirstCharacterToLower(),GraphName},
+                           {ExpressionExtenions.GetPropertyName(() => GraphObjName).FirstCharacterToLower(),GraphObjName},
+                           {ExpressionExtenions.GetPropertyName(() => Console).FirstCharacterToLower(),Console},
+                       };
         }
-
-        
     }
 }

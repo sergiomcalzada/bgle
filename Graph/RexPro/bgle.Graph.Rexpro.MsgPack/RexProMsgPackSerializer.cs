@@ -40,13 +40,13 @@ namespace bgle.Graph.Rexpro.MsgPack
             var result = Activator.CreateInstance<T>();
             if (typeof(T) == typeof(SessionResponseMessage))
             {
-                //var languages = (System.Collections.IEnumerable)parsed[3];
-                //json[3] = (from object language in languages select language.ToString()).ToArray();
+                var languages = ((MessagePackObject)(parsed[3])).AsList();
+                parsed[3] = languages.Select(x => x.AsString()).ToArray();
             }
             else if (typeof(T) == typeof(ScriptResponseMessage))
             {
                 var scriptResult = parsed[3];
-                parsed[3] = new RexProScriptResult(scriptResult);
+                parsed[3] = new RexProScriptResult(((MessagePackObject)scriptResult).ToObject());
 
                 var scriptBindings = parsed[4];
                 parsed[4] = new RexProBindings(); //TODO: transforms bindings from response
@@ -59,7 +59,7 @@ namespace bgle.Graph.Rexpro.MsgPack
         {
             var parsed = this.Parse(responseBytes);
             parsed[2] = (ErrorResponseMessageFlag)((MessagePackObject)parsed[2]).AsDictionary()["flag"].AsByte();
-            
+
             var result = new ErrorResponseMessage();
             result.Build(parsed);
             return result;

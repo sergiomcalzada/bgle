@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace bgle.Graph.Rexpro.protocol.msg
 {
@@ -41,6 +43,14 @@ namespace bgle.Graph.Rexpro.protocol.msg
             this.KillSession = false;
         }
 
-        
+        public IDictionary<string, object> AsDictionary()
+        {
+            return new Dictionary<string, object>
+                       {
+                           {ExpressionExtenions.GetPropertyName(() => GraphName).FirstCharacterToLower(),GraphName},
+                           {ExpressionExtenions.GetPropertyName(() => GraphObjName).FirstCharacterToLower(),GraphObjName},
+                           {ExpressionExtenions.GetPropertyName(() => KillSession).FirstCharacterToLower(),KillSession},
+                       };
+        }
     }
 }

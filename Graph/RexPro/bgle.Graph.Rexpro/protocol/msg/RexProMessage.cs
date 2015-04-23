@@ -70,7 +70,7 @@ namespace bgle.Graph.Rexpro.protocol.msg
         {
             var result = base.GetArray();
             Array.Resize(ref result, result.Length + 1);
-            result[result.Length - 1] = this.Meta;
+            result[result.Length - 1] = this.Meta.AsDictionary();
             return result;
         }
     }

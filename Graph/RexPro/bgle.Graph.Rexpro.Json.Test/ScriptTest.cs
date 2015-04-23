@@ -13,7 +13,7 @@ namespace bgle.Graph.Rexpro.Json.Test
             var client = new RexProClient(new RexProJsonSerializer());
             var result = client.Query("number = 1+2");
             Assert.IsNotNull(result);
-            Assert.IsTrue(result.Value.Equals((long)3));
+            Assert.IsTrue(long.Parse(result.Value.ToString()).Equals(3));
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace bgle.Graph.Rexpro.Json.Test
                                                                     {"two", 2},
                                                                 });
             Assert.IsNotNull(result);
-            Assert.IsTrue(result.Value.Equals((long)3));
+            Assert.IsTrue(long.Parse(result.Value.ToString()).Equals(3));
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace bgle.Graph.Rexpro.Json.Test
             {
                 var result = client.Query("number = 1+2", null, session);
                 Assert.IsNotNull(result);
-                Assert.IsTrue(result.Value.Equals((long)3)); 
+                Assert.IsTrue(long.Parse(result.Value.ToString()).Equals(3)); 
             }
             
         }
@@ -54,7 +54,7 @@ namespace bgle.Graph.Rexpro.Json.Test
                                                                     {"two", 2},
                                                                 }, session);
                 Assert.IsNotNull(result);
-                Assert.IsTrue(result.Value.Equals((long)3));
+                Assert.IsTrue(long.Parse(result.Value.ToString()).Equals(3));
             }
 
         }
