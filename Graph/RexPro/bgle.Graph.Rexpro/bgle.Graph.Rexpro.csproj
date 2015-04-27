@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
     <Compile Include="IRexProSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="protocol\msg\ErrorResponseMessage.cs" />

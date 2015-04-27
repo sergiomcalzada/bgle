@@ -6,10 +6,8 @@ namespace bgle.Graph.Rexpro.protocol.msg
 {
     public class SessionRequestMessage : RexProRequestMessage<SessionRequestMessageMeta>
     {
-        [RexProSerialize]
         public String Username { get; set; }
 
-        [RexProSerialize]
         public String Password { get; set; }
 
         public SessionRequestMessage()
@@ -29,13 +27,10 @@ namespace bgle.Graph.Rexpro.protocol.msg
 
     public class SessionRequestMessageMeta : IRexProRequestMessageMeta
     {
-        [RexProSerialize]
         public string GraphName { get; set; }
 
-        [RexProSerialize]
         public string GraphObjName { get; set; }
 
-        [RexProSerialize]
         public bool KillSession { get; set; }
 
         public SessionRequestMessageMeta()
@@ -45,12 +40,12 @@ namespace bgle.Graph.Rexpro.protocol.msg
 
         public IDictionary<string, object> AsDictionary()
         {
-            return new Dictionary<string, object>
-                       {
-                           {ExpressionExtenions.GetPropertyName(() => GraphName).FirstCharacterToLower(),GraphName},
-                           {ExpressionExtenions.GetPropertyName(() => GraphObjName).FirstCharacterToLower(),GraphObjName},
-                           {ExpressionExtenions.GetPropertyName(() => KillSession).FirstCharacterToLower(),KillSession},
-                       };
+            var dic = new Dictionary<string, object>();
+
+            dic.Add(() => this.GraphName);
+            dic.Add(() => this.GraphObjName);
+            dic.Add(() => this.KillSession);
+            return dic;
         }
     }
 }

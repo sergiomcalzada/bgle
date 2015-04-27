@@ -6,13 +6,10 @@ namespace bgle.Graph.Rexpro.protocol.msg
 {
     public class ScriptRequestMessage : RexProRequestMessage<ScriptRequestMessageMeta>
     {
-        [RexProSerialize]
         public string LanguageName { get; set; }
 
-        [RexProSerialize]
         public string Script { get; private set; }
 
-        [RexProSerialize]
         public RexProBindings Bindings { get; private set; }
 
         public ScriptRequestMessage(string script, IDictionary<string, object> bindings)
@@ -36,35 +33,30 @@ namespace bgle.Graph.Rexpro.protocol.msg
 
     public class ScriptRequestMessageMeta : IRexProRequestMessageMeta
     {
-        [RexProSerialize]
         public bool InSession { get; set; }
 
-        [RexProSerialize]
         public bool Isolate { get; set; }
 
-        [RexProSerialize]
         public bool Transaction { get; set; }
 
-        [RexProSerialize]
         public string GraphName { get; set; }
 
-        [RexProSerialize]
         public string GraphObjName { get; set; }
 
-        [RexProSerialize]
         public string Console { get; set; }
 
         public IDictionary<string, object> AsDictionary()
         {
-            return new Dictionary<string, object>
-                       {
-                           {ExpressionExtenions.GetPropertyName(() => InSession).FirstCharacterToLower(),InSession},
-                           {ExpressionExtenions.GetPropertyName(() => Isolate).FirstCharacterToLower(),Isolate},
-                           {ExpressionExtenions.GetPropertyName(() => Transaction).FirstCharacterToLower(),Transaction},
-                           {ExpressionExtenions.GetPropertyName(() => GraphName).FirstCharacterToLower(),GraphName},
-                           {ExpressionExtenions.GetPropertyName(() => GraphObjName).FirstCharacterToLower(),GraphObjName},
-                           {ExpressionExtenions.GetPropertyName(() => Console).FirstCharacterToLower(),Console},
-                       };
+            var dic = new Dictionary<string, object>();
+            dic.Add(() => this.InSession);
+            dic.Add(() => this.Isolate);
+            dic.Add(() => this.Transaction);
+            dic.Add(() => this.GraphName);
+            dic.Add(() => this.GraphObjName);
+            dic.Add(() => this.Console);
+            return dic;
         }
+
+
     }
 }

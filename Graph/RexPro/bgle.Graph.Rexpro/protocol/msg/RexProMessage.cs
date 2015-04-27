@@ -2,9 +2,7 @@
 
 namespace bgle.Graph.Rexpro.protocol.msg
 {
-    public class RexProSerializeAttribute : Attribute
-    {
-    }
+    
 
     public class RexProMessage
     {
@@ -20,10 +18,8 @@ namespace bgle.Graph.Rexpro.protocol.msg
 
         public MessageType MessageType { get; private set; }
 
-        [RexProSerialize]
         public Guid Session { get; set; }
 
-        [RexProSerialize]
         public Guid Request { get; set; }
 
         protected RexProMessage(MessageType messageType)
