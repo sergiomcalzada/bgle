@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{70C5D58A-3A8F-471C-95DD-2CFE0F633A76}</ProjectGuid>
+    <ProjectGuid>{58BBACA4-68B0-4D2E-AE54-F69CB7A730BE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>bgle.Graph.Rexpro.MsgPack.Test</RootNamespace>
-    <AssemblyName>bgle.Graph.Rexpro.MsgPack.Test</AssemblyName>
+    <RootNamespace>bgle.Graph.Rexpro.Test</RootNamespace>
+    <AssemblyName>bgle.Graph.Rexpro.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,14 +55,6 @@
     <Compile Include="SessionTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\bgle.Graph.Rexpro.MsgPack\bgle.Graph.Rexpro.MsgPack.csproj">
-      <Project>{10B6CFD3-20B2-4AEA-A957-04CC1BC38F9B}</Project>
-      <Name>bgle.Graph.Rexpro.MsgPack</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\bgle.Graph.Rexpro.Test\bgle.Graph.Rexpro.Test.csproj">
-      <Project>{58BBACA4-68B0-4D2E-AE54-F69CB7A730BE}</Project>
-      <Name>bgle.Graph.Rexpro.Test</Name>
-    </ProjectReference>
     <ProjectReference Include="..\bgle.Graph.Rexpro\bgle.Graph.Rexpro.csproj">
       <Project>{4186BE00-53EE-4681-B194-70F141B1B379}</Project>
       <Name>bgle.Graph.Rexpro</Name>

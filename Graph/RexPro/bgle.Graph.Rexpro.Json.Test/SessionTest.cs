@@ -1,46 +1,33 @@
-﻿using System;
+﻿using bgle.Graph.Rexpro.Test;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace bgle.Graph.Rexpro.Json.Test
 {
     [TestClass]
-    public class SessionTest
+    public class SessionTest : BaseSessionTest
     {
-        [TestMethod]
-        public void CanBeginSession()
+        public SessionTest()
+            : base(new RexProJsonSerializer())
         {
-            var client = new RexProClient(new RexProJsonSerializer());
-            var session = client.BeginSession();
-            Assert.IsNotNull(session);
-            Assert.IsNotNull(session.Id);
-            Assert.AreNotEqual(session.Id, Guid.Empty);
         }
 
         [TestMethod]
-        public void CanEndSession()
+        public override void CanBeginSession()
         {
-            var client = new RexProClient(new RexProJsonSerializer());
-            var session = client.BeginSession();
-            Assert.IsNotNull(session);
-            Assert.IsNotNull(session.Id);
-            Assert.AreNotEqual(session.Id, Guid.Empty);
-
-            client.EndSession(session);
-            Assert.IsTrue(session.Killed);
+            base.CanBeginSession();
         }
 
         [TestMethod]
-        public void CanUsingSession()
+        public override void CanEndSession()
         {
-            var client = new RexProClient(new RexProJsonSerializer());
-            using (var session = client.BeginSession())
-            {
-                Assert.IsNotNull(session);
-                Assert.IsNotNull(session.Id);
-                Assert.AreNotEqual(session.Id, Guid.Empty);
-            }
+            base.CanEndSession();
+        }
 
+        [TestMethod]
+        public override void CanUsingSession()
+        {
+            base.CanUsingSession();
         }
     }
 }

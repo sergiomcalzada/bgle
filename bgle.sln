@@ -79,6 +79,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bgle.Graph.Rexpro.Json.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bgle.Graph.Rexpro.MsgPack.Test", "Graph\RexPro\bgle.Graph.Rexpro.MsgPack.Test\bgle.Graph.Rexpro.MsgPack.Test.csproj", "{70C5D58A-3A8F-471C-95DD-2CFE0F633A76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bgle.Graph.Rexpro.Test", "Graph\RexPro\bgle.Graph.Rexpro.Test\bgle.Graph.Rexpro.Test.csproj", "{58BBACA4-68B0-4D2E-AE54-F69CB7A730BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -181,6 +183,10 @@ Global
 		{70C5D58A-3A8F-471C-95DD-2CFE0F633A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70C5D58A-3A8F-471C-95DD-2CFE0F633A76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70C5D58A-3A8F-471C-95DD-2CFE0F633A76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58BBACA4-68B0-4D2E-AE54-F69CB7A730BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58BBACA4-68B0-4D2E-AE54-F69CB7A730BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58BBACA4-68B0-4D2E-AE54-F69CB7A730BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58BBACA4-68B0-4D2E-AE54-F69CB7A730BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -215,5 +221,6 @@ Global
 		{10B6CFD3-20B2-4AEA-A957-04CC1BC38F9B} = {1EDCE080-38D1-4218-A677-2B2A0E3D6E2F}
 		{EF44E04A-A482-43A9-AA01-BE510F194986} = {1EDCE080-38D1-4218-A677-2B2A0E3D6E2F}
 		{70C5D58A-3A8F-471C-95DD-2CFE0F633A76} = {1EDCE080-38D1-4218-A677-2B2A0E3D6E2F}
+		{58BBACA4-68B0-4D2E-AE54-F69CB7A730BE} = {1EDCE080-38D1-4218-A677-2B2A0E3D6E2F}
 	EndGlobalSection
 EndGlobal

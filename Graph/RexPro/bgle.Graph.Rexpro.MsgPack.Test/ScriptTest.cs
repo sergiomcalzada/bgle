@@ -1,62 +1,41 @@
-﻿using System.Collections.Generic;
+﻿using bgle.Graph.Rexpro.Test;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace bgle.Graph.Rexpro.MsgPack.Test
 {
     [TestClass]
-    public class ScriptTest
+    public class ScriptTest : BaseScriptTest
     {
-        [TestMethod]
-        public void CanRunQuery()
+        
+
+        public ScriptTest()
+            : base(new RexProMsgPackSerializer())
         {
-            var client = new RexProClient(new RexProMsgPackSerializer());
-            var result = client.Query("number = 1+2");
-            Assert.IsNotNull(result);
-            Assert.IsTrue(long.Parse(result.Value.ToString()).Equals(3));
         }
 
         [TestMethod]
-        public void CanRunWithBindingsQuery()
+        public override void CanRunQuery()
         {
-            var client = new RexProClient(new RexProMsgPackSerializer());
-            var result = client.Query("three = one + two", new Dictionary<string, object>
-                                                                {
-                                                                    {"one", 1},
-                                                                    {"two", 2},
-                                                                });
-            Assert.IsNotNull(result);
-            Assert.IsTrue(long.Parse(result.Value.ToString()).Equals(3));
+            base.CanRunQuery();
         }
 
         [TestMethod]
-        public void CanRunQueryInSession()
+        public override void CanRunWithBindingsQuery()
         {
-            var client = new RexProClient(new RexProMsgPackSerializer());
-            using (var session = client.BeginSession())
-            {
-                var result = client.Query("number = 1+2", null, session);
-                Assert.IsNotNull(result);
-                Assert.IsTrue(long.Parse(result.Value.ToString()).Equals(3)); 
-            }
-            
+            base.CanRunWithBindingsQuery();
         }
 
         [TestMethod]
-        public void CanRunQueryWithBindingsInSession()
+        public override void CanRunQueryInSession()
         {
-            var client = new RexProClient(new RexProMsgPackSerializer());
-            using (var session = client.BeginSession())
-            {
-                var result = client.Query("three = one + two", new Dictionary<string, object>
-                                                                {
-                                                                    {"one", 1},
-                                                                    {"two", 2},
-                                                                }, session);
-                Assert.IsNotNull(result);
-                Assert.IsTrue(long.Parse(result.Value.ToString()).Equals(3));
-            }
+            base.CanRunQueryInSession();
+        }
 
+        [TestMethod]
+        public override void CanRunQueryWithBindingsInSession()
+        {
+            base.CanRunQueryWithBindingsInSession();
         }
     }
 }
