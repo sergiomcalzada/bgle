@@ -20,7 +20,7 @@ namespace bgle.Graph.Rexpro.Test
             Assert.IsTrue(long.Parse(result.Value.ToString()).Equals(3));
         }
 
-        public virtual void CanRunWithBindingsQuery()
+        public virtual void CanRunWithDictionaryBindingsQuery()
         {
             var result = this.Client.Query("three = one + two", new Dictionary<string, object> { { "one", 1 }, { "two", 2 }, });
             Assert.IsNotNull(result);
@@ -37,7 +37,7 @@ namespace bgle.Graph.Rexpro.Test
             }
         }
 
-        public virtual void CanRunQueryWithBindingsInSession()
+        public virtual void CanRunQueryWithDictionaryBindingsInSession()
         {
             using (var session = this.Client.BeginSession())
             {
@@ -45,6 +45,14 @@ namespace bgle.Graph.Rexpro.Test
                 Assert.IsNotNull(result);
                 Assert.IsTrue(long.Parse(result.Value.ToString()).Equals(3));
             }
+        }
+
+        public virtual void CanQueryTitanGrahpTest()
+        {
+            this.Client.GraphName = "titanexample";
+            var result = this.Client.Query("g.getClass()");
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Value.ToString().Equals("class com.thinkaurelius.titan.graphdb.database.StandardTitanGraph"));
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace bgle.Graph.Rexpro.protocol.msg
 {
@@ -42,9 +41,9 @@ namespace bgle.Graph.Rexpro.protocol.msg
         {
             var dic = new Dictionary<string, object>();
 
-            dic.Add(() => this.GraphName);
-            dic.Add(() => this.GraphObjName);
-            dic.Add(() => this.KillSession);
+            dic.AddPascalCase(() => this.GraphName);
+            dic.AddPascalCase(() => this.GraphObjName);
+            dic.AddPascalCase(() => this.KillSession);
             return dic;
         }
     }

@@ -50,9 +50,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BaseQueryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScriptTest.cs" />
-    <Compile Include="SessionTest.cs" />
+    <Compile Include="BaseScriptTest.cs" />
+    <Compile Include="BaseSessionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\bgle.Graph.Rexpro\bgle.Graph.Rexpro.csproj">

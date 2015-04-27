@@ -11,11 +11,15 @@ namespace bgle.Graph.Rexpro
 {
     public class RexProClient
     {
-        private static readonly IDictionary<MessageType, MessageType> ExpectedResponseMessageType = new Dictionary<MessageType, MessageType>
-        {
-            { MessageType.SessionRequest, MessageType.SessionResponse },
-            { MessageType.ScriptRequest, MessageType.ScriptResponse }
-        };
+        private const int DefaultPort = 8184;
+
+        private static readonly IDictionary<MessageType, MessageType> ExpectedResponseMessageType =
+            new Dictionary<MessageType, MessageType>{
+                                                        {MessageType.SessionRequest, MessageType.SessionResponse},
+                                                        {MessageType.ScriptRequest,MessageType.ScriptResponse}
+                                                    };
+
+        private readonly ConcurrentDictionary<Guid, TcpClient> connections = new ConcurrentDictionary<Guid, TcpClient>();
 
         private readonly string host;
 
@@ -23,8 +27,9 @@ namespace bgle.Graph.Rexpro
 
         private readonly IRexProSerializer serializer;
 
+        public string GraphName { get; set; }
 
-        private const int DefaultPort = 8184;
+        public string GraphObjName { get; set; }
 
         public RexProClient(IRexProSerializer serializer)
             : this("localhost", DefaultPort, serializer)
@@ -36,10 +41,8 @@ namespace bgle.Graph.Rexpro
             this.host = host;
             this.port = port;
             this.serializer = serializer;
+            this.GraphObjName = "g";
         }
-
-        private readonly ConcurrentDictionary<Guid, TcpClient> connections = new ConcurrentDictionary<Guid, TcpClient>();
-
 
         public RexProSession BeginSession()
         {
@@ -49,9 +52,12 @@ namespace bgle.Graph.Rexpro
 
             this.connections.GetOrAdd(session.Id, _ => new TcpClient(this.host, this.port));
             session.KillSession += (sender, args) =>
-            {
-                if (!session.Killed) this.EndSession(session);
-            };
+                {
+                    if (!session.Killed)
+                    {
+                        this.EndSession(session);
+                    }
+                };
 
             return session;
         }
@@ -78,24 +84,58 @@ namespace bgle.Graph.Rexpro
             session.Killed = true;
         }
 
-        public RexProScriptResult Query(string script, Dictionary<string, object> bindings = null, RexProSession session = null, bool transaction = true)
+        public RexProScriptResult Query(string script)
+        {
+            return this.Query(script, null, null, true);
+        }
+
+        public RexProScriptResult Query(string script, IDictionary<string, object> bindings)
+        {
+            return this.Query(script, bindings, null, true);
+        }
+
+        public RexProScriptResult Query(string script, IDictionary<string, object> bindings, RexProSession session)
+        {
+            return this.Query(script, bindings, session, true);
+        }
+
+        public RexProScriptResult Query(string script, IDictionary<string, object> bindings, RexProSession session, bool transaction)
         {
             var request = new ScriptRequestMessage(script, bindings);
             return this.ExecuteScript(request, session, transaction).Result;
         }
 
+        public RexProScriptResult Query<T>(string script, T bindings)
+        {
+            var dic = bindings as IDictionary<string, object>;
+            return this.Query(script, dic ?? bindings.ToDictionary(), null, true);
+        }
+
+        public RexProScriptResult Query<T>(string script, T bindings, RexProSession session, bool transaction)
+        {
+            var dic = bindings as IDictionary<string, object>;
+            return this.Query(script, dic ?? bindings.ToDictionary(), session, transaction);
+        }
+
+        public RexProScriptResult Query<T>(string script, T bindings, RexProSession session)
+        {
+            var dic = bindings as IDictionary<string, object>;
+            return this.Query(script, dic ?? bindings.ToDictionary(), session, true);
+        }
+
         private ScriptResponseMessage ExecuteScript(ScriptRequestMessage script, RexProSession session = null, bool transaction = true)
         {
+            script.Meta.GraphObjName = this.GraphObjName;
+            script.Meta.GraphName = this.GraphName;
+
             script.Meta.InSession = session != null;
             script.Meta.Isolate = session == null;
             script.Meta.Transaction = transaction;
-
 
             if (session != null)
             {
                 script.Session = session.Id;
             }
-
 
             return this.SendRequest<ScriptRequestMessage, ScriptResponseMessage>(script);
         }
@@ -104,10 +144,9 @@ namespace bgle.Graph.Rexpro
             where TRequest : RexProMessage
             where TResponse : RexProMessage
         {
-
             var connection = request.Session != Guid.Empty
-                                ? this.connections.GetOrAdd(request.Session, _ => new TcpClient(this.host, this.port))
-                                : new TcpClient(this.host, this.port);
+                                 ? this.connections.GetOrAdd(request.Session, _ => new TcpClient(this.host, this.port))
+                                 : new TcpClient(this.host, this.port);
 
             try
             {
@@ -139,15 +178,13 @@ namespace bgle.Graph.Rexpro
             }
         }
 
-        private T ParseResponse<T>(Stream networkStream, MessageType requestMessageType)
-            where T : RexProMessage
+        private T ParseResponse<T>(Stream networkStream, MessageType requestMessageType) where T : RexProMessage
         {
             var headerBytes = new byte[RexProMessage.MESSAGE_HEADER_SIZE];
             var bytesRead = 0;
 
             while (bytesRead != RexProMessage.MESSAGE_HEADER_SIZE)
             {
-
                 var bytes = networkStream.Read(headerBytes, bytesRead, RexProMessage.MESSAGE_HEADER_SIZE - bytesRead);
                 bytesRead += bytes;
             }
@@ -168,7 +205,6 @@ namespace bgle.Graph.Rexpro
             {
                 throw new RexProException("Invalid serializer.");
             }
-
 
             var buffer = new byte[1024];
             bytesRead = 0;

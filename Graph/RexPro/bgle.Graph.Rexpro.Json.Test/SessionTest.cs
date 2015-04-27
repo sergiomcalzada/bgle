@@ -29,5 +29,7 @@ namespace bgle.Graph.Rexpro.Json.Test
         {
             base.CanUsingSession();
         }
+
+
     }
 }

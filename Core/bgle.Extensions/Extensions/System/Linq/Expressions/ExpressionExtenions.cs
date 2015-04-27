@@ -29,7 +29,9 @@
 
         public static string GetPropertyName<T>(Expression<Func<T>> propertyLambda)
         {
-            var memberExpression = propertyLambda.Body as MemberExpression;
+            var unaryExpression = propertyLambda.Body as UnaryExpression;
+            var memberExpression = unaryExpression == null? propertyLambda.Body as MemberExpression : unaryExpression.Operand as MemberExpression;
+            
             if (memberExpression == null)
             {
                 throw new ArgumentException("You must pass a lambda of the form: '() => Class.Property' or '() => object.Property'");
@@ -40,7 +42,9 @@
 
         public static string GetPropertyName<T, TProperty>(Expression<Func<T, TProperty>> propertyLambda)
         {
-            var memberExpression = propertyLambda.Body as MemberExpression;
+            var unaryExpression = propertyLambda.Body as UnaryExpression;
+            var memberExpression = unaryExpression == null ? propertyLambda.Body as MemberExpression : unaryExpression.Operand as MemberExpression;
+
             if (memberExpression == null)
             {
                 throw new ArgumentException("You must pass a lambda of the form: 'e => Class.Property' or 'e => e.Property'");

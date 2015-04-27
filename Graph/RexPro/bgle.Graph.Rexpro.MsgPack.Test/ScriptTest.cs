@@ -7,7 +7,7 @@ namespace bgle.Graph.Rexpro.MsgPack.Test
     [TestClass]
     public class ScriptTest : BaseScriptTest
     {
-        
+
 
         public ScriptTest()
             : base(new RexProMsgPackSerializer())
@@ -21,9 +21,9 @@ namespace bgle.Graph.Rexpro.MsgPack.Test
         }
 
         [TestMethod]
-        public override void CanRunWithBindingsQuery()
+        public override void CanRunWithDictionaryBindingsQuery()
         {
-            base.CanRunWithBindingsQuery();
+            base.CanRunWithDictionaryBindingsQuery();
         }
 
         [TestMethod]
@@ -33,9 +33,15 @@ namespace bgle.Graph.Rexpro.MsgPack.Test
         }
 
         [TestMethod]
-        public override void CanRunQueryWithBindingsInSession()
+        public override void CanRunQueryWithDictionaryBindingsInSession()
         {
-            base.CanRunQueryWithBindingsInSession();
+            base.CanRunQueryWithDictionaryBindingsInSession();
+        }
+
+        [TestMethod]
+        public override void CanQueryTitanGrahpTest()
+        {
+            base.CanQueryTitanGrahpTest();
         }
     }
 }

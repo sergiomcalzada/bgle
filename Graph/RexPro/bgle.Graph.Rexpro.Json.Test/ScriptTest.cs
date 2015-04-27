@@ -21,9 +21,9 @@ namespace bgle.Graph.Rexpro.Json.Test
         }
 
         [TestMethod]
-        public override void CanRunWithBindingsQuery()
+        public override void CanRunWithDictionaryBindingsQuery()
         {
-            base.CanRunWithBindingsQuery();
+            base.CanRunWithDictionaryBindingsQuery();
         }
 
         [TestMethod]
@@ -33,9 +33,15 @@ namespace bgle.Graph.Rexpro.Json.Test
         }
 
         [TestMethod]
-        public override void CanRunQueryWithBindingsInSession()
+        public override void CanRunQueryWithDictionaryBindingsInSession()
         {
-            base.CanRunQueryWithBindingsInSession();
+            base.CanRunQueryWithDictionaryBindingsInSession();
+        }
+
+        [TestMethod]
+        public override void CanQueryTitanGrahpTest()
+        {
+            base.CanQueryTitanGrahpTest();
         }
     }
 }
