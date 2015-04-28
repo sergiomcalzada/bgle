@@ -53,9 +53,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\bgle.core\bgle.core.csproj">
+    <ProjectReference Include="..\..\..\Core\bgle.Core\bgle.Core.csproj">
       <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
-      <Name>bgle.core</Name>
+      <Name>bgle.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Event\bgle.CQRS.EventStore\bgle.CQRS.EventStore.csproj">
       <Project>{374799DB-FFB7-4F76-928F-4750EBB5A85B}</Project>

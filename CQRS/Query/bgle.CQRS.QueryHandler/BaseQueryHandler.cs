@@ -8,16 +8,16 @@ namespace bgle.CQRS.QueryHandler
     {
         public TQueryResult Handle(TQuery query)
         {
-            this.BeforeHandle(query);
-            var result = this.DoHandle(query);
-            this.AfterHandle(query, result);
+            this.BeforeQuery(query);
+            var result = this.Query(query);
+            this.AfterQuery(query, result);
             return result;
         }
 
-        protected abstract void BeforeHandle(TQuery query);
+        protected abstract void BeforeQuery(TQuery query);
 
-        protected abstract TQueryResult DoHandle(TQuery query);
+        protected abstract TQueryResult Query(TQuery query);
 
-        protected abstract void AfterHandle(TQuery query, TQueryResult result);
+        protected abstract void AfterQuery(TQuery query, TQueryResult result);
     }
 }

@@ -10,21 +10,21 @@ using bgle.Entity;
 
 namespace bgle.CQRS.QueryHandler
 {
-    public abstract class MiltipleEntitySpecificationQueryHandler<TQuery, TQueryResult, TQueryResultItem, TEntity, TQuerySpecificationBuilder, TQueryResultBuilder> :
+    public abstract class MultipleEntitySpecificationQueryHandler<TQuery, TQueryResult, TQueryResultItem, TEntity, TQuerySpecificationBuilder, TQueryResultBuilder> :
         EntitySpecificationQueryHandler<TQuery, TQueryResult, TEntity, TQuerySpecificationBuilder>
         where TQuery : IQuery
         where TQueryResult : IQueryResultCollection<TQueryResultItem>, new()
         where TQueryResultItem : IQueryResultCollectionItem
         where TEntity : class, IEntity
         where TQuerySpecificationBuilder : IQuerySpecificationBuilder<TQuery, TEntity>, new()
-        where TQueryResultBuilder : IQueryResultBuilder<TQueryResultItem, TEntity>, new()
+        where TQueryResultBuilder : IExpressionQueryResultBuilder<TQueryResultItem, TEntity>, new()
     {
-        protected MiltipleEntitySpecificationQueryHandler(IRepository repository)
+        protected MultipleEntitySpecificationQueryHandler(IRepository repository)
             : base(repository)
         {
         }
 
-        protected override TQueryResult DoHandle(TQuery query)
+        protected override TQueryResult Query(TQuery query)
         {
             var entities = this.Repository.Where(this.Specification);
             return this.Materialize(entities, query);
@@ -34,7 +34,7 @@ namespace bgle.CQRS.QueryHandler
         {
             var builder = new TQueryResultBuilder();
             var result = new TQueryResult();
-            result.AddRange(entities.Select(builder.Build));
+            result.AddRange(entities.Select(builder.Selector()));
             return result;
         }
     }

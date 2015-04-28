@@ -48,9 +48,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\bgle.core\bgle.core.csproj">
+    <ProjectReference Include="..\..\..\Core\bgle.Core\bgle.Core.csproj">
       <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
-      <Name>bgle.core</Name>
+      <Name>bgle.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\bgle.CQRS.Event\bgle.CQRS.Event.csproj">
       <Project>{63A27E75-338E-4442-8B34-372A4294CECC}</Project>

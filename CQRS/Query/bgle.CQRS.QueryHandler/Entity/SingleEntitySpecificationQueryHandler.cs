@@ -15,14 +15,14 @@ namespace bgle.CQRS.QueryHandler
         where TQueryResult : IQueryResult
         where TEntity : class, IEntity
         where TQuerySpecificationBuilder : IQuerySpecificationBuilder<TQuery, TEntity>, new()
-        where TQueryResultBuilder : IQueryResultBuilder<TQueryResult, TEntity>, new()
+        where TQueryResultBuilder : IEntityQueryResultBuilder<TQueryResult, TEntity>, new()
     {
         protected SingleEntitySpecificationQueryHandler(IRepository repository)
             : base(repository)
         {
         }
 
-        protected override TQueryResult DoHandle(TQuery query)
+        protected override TQueryResult Query(TQuery query)
         {
             var entity = this.Repository.Where(this.Specification).Single();
             return this.Materialize(entity, query);

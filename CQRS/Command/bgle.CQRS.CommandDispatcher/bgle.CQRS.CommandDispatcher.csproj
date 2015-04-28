@@ -51,9 +51,9 @@
     <Compile Include="TransactionalCommandDispatcher.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\bgle.core\bgle.core.csproj">
+    <ProjectReference Include="..\..\..\Core\bgle.Core\bgle.Core.csproj">
       <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
-      <Name>bgle.core</Name>
+      <Name>bgle.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\bgle.CQRS.CommandHandler\bgle.CQRS.CommandHandler.csproj">
       <Project>{22B4587F-736E-47AE-AB02-DE9949467C21}</Project>

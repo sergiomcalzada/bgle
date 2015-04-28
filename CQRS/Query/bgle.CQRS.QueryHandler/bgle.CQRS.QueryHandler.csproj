@@ -45,15 +45,15 @@
     <Compile Include="Entity\EntityQueryHandler.cs" />
     <Compile Include="BaseQueryHandler.cs" />
     <Compile Include="Entity\EntitySpecificationQueryHandler.cs" />
-    <Compile Include="Entity\MiltipleEntitySpecificationQueryHandler.cs" />
+    <Compile Include="Entity\MultipleEntitySpecificationQueryHandler.cs" />
     <Compile Include="Entity\SingleEntitySpecificationQueryHandler.cs" />
     <Compile Include="IQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\bgle.core\bgle.core.csproj">
+    <ProjectReference Include="..\..\..\Core\bgle.Core\bgle.Core.csproj">
       <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
-      <Name>bgle.core</Name>
+      <Name>bgle.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\bgle.CQRS.QueryResultBuilder\bgle.CQRS.QueryResultBuilder.csproj">
       <Project>{37D8CF2C-1868-42F2-859A-A26347EBC4E2}</Project>

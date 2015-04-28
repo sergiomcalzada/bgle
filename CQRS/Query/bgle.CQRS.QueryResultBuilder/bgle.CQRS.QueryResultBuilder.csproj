@@ -42,13 +42,15 @@
     <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
+    <Compile Include="IEntityQueryResultBuilder.cs" />
+    <Compile Include="IExpressionQueryResultBuilder.cs" />
     <Compile Include="IQueryResultBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\bgle.core\bgle.core.csproj">
+    <ProjectReference Include="..\..\..\Core\bgle.Core\bgle.Core.csproj">
       <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
-      <Name>bgle.core</Name>
+      <Name>bgle.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\bgle.CQRS.QueryResult\bgle.CQRS.QueryResult.csproj">
       <Project>{38348FB3-B096-4744-BB26-A08879826BB3}</Project>
