@@ -111,16 +111,16 @@ namespace bgle.Graph.Rexpro
             return this.Query(script, dic ?? bindings.ToDictionary(), null, true);
         }
 
-        public RexProScriptResult Query<T>(string script, T bindings, RexProSession session, bool transaction)
-        {
-            var dic = bindings as IDictionary<string, object>;
-            return this.Query(script, dic ?? bindings.ToDictionary(), session, transaction);
-        }
-
         public RexProScriptResult Query<T>(string script, T bindings, RexProSession session)
         {
             var dic = bindings as IDictionary<string, object>;
             return this.Query(script, dic ?? bindings.ToDictionary(), session, true);
+        }
+
+        public RexProScriptResult Query<T>(string script, T bindings, RexProSession session, bool transaction)
+        {
+            var dic = bindings as IDictionary<string, object>;
+            return this.Query(script, dic ?? bindings.ToDictionary(), session, transaction);
         }
 
         private ScriptResponseMessage ExecuteScript(ScriptRequestMessage script, RexProSession session = null, bool transaction = true)
@@ -238,4 +238,6 @@ namespace bgle.Graph.Rexpro
             }
         }
     }
+
+    
 }

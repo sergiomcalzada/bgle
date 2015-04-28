@@ -38,10 +38,6 @@ namespace bgle.Graph.Rexpro.Json.Test
             base.CanRunQueryWithDictionaryBindingsInSession();
         }
 
-        [TestMethod]
-        public override void CanQueryTitanGrahpTest()
-        {
-            base.CanQueryTitanGrahpTest();
-        }
+        
     }
 }

@@ -46,13 +46,6 @@ namespace bgle.Graph.Rexpro.Test
                 Assert.IsTrue(long.Parse(result.Value.ToString()).Equals(3));
             }
         }
-
-        public virtual void CanQueryTitanGrahpTest()
-        {
-            this.Client.GraphName = "titanexample";
-            var result = this.Client.Query("g.getClass()");
-            Assert.IsNotNull(result);
-            Assert.IsTrue(result.Value.ToString().Equals("class com.thinkaurelius.titan.graphdb.database.StandardTitanGraph"));
-        }
+        
     }
 }

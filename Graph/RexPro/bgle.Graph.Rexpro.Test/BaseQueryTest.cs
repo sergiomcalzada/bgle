@@ -11,11 +11,13 @@ namespace bgle.Graph.Rexpro.Test
             this.Client = new RexProClient(serializer);
         }
 
-        public virtual void CanQueryTitanTest()
+        public virtual void CanQueryTitanGrahpClassTest()
         {
-            var result = this.Client.Query("q.GetClass()");
+            this.Client.GraphName = "titanexample";
+            var result = this.Client.Query("g.getClass()");
             Assert.IsNotNull(result);
-            Assert.IsTrue(long.Parse(result.Value.ToString()).Equals(3));
+            Assert.IsTrue(result.Value.ToString().Equals("class com.thinkaurelius.titan.graphdb.database.StandardTitanGraph"));
         }
+        
     }
 }
