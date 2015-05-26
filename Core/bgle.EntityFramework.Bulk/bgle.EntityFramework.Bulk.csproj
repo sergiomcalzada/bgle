@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\AssemblyInfo\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
     <Compile Include="BulkInsertProvider.cs" />
     <Compile Include="BulkProvider.cs" />
     <Compile Include="BulkUpdateProvider.cs" />

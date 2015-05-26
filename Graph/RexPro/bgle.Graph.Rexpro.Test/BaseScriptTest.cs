@@ -4,13 +4,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace bgle.Graph.Rexpro.Test
 {
-    public class BaseScriptTest
+    public class BaseScriptTest : BaseTest
     {
-        protected readonly RexProClient Client;
-
+        
         public BaseScriptTest(IRexProSerializer serializer)
+            : base(serializer)
         {
-            this.Client = new RexProClient(serializer);
+
         }
 
         public virtual void CanRunQuery()
@@ -46,6 +46,6 @@ namespace bgle.Graph.Rexpro.Test
                 Assert.IsTrue(long.Parse(result.Value.ToString()).Equals(3));
             }
         }
-        
+
     }
 }

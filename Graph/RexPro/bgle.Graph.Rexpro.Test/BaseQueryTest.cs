@@ -2,13 +2,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace bgle.Graph.Rexpro.Test
 {
-    public class BaseQueryTest
+    public class BaseQueryTest : BaseTest
     {
-        protected readonly RexProClient Client;
-
         public BaseQueryTest(IRexProSerializer serializer)
+            : base(serializer)
         {
-            this.Client = new RexProClient(serializer);
         }
 
         public virtual void CanQueryTitanGrahpClassTest()

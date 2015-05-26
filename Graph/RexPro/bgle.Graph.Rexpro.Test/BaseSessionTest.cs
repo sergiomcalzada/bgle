@@ -4,16 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace bgle.Graph.Rexpro.Test
 {
-    public class BaseSessionTest
+    public class BaseSessionTest: BaseTest
     {
-        protected readonly RexProClient Client;
 
         public BaseSessionTest(IRexProSerializer serializer)
+            : base(serializer)
         {
-            this.Client = new RexProClient(serializer);
-        }
 
-       
+        }
+        
         public virtual void CanBeginSession()
         {
             var session = Client.BeginSession();
