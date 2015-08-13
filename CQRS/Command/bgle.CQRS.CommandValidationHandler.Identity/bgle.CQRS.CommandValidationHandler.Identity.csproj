@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{63A27E75-338E-4442-8B34-372A4294CECC}</ProjectGuid>
+    <ProjectGuid>{21F2438F-B5B1-4852-9815-C9CCDAFABCFD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>bgle.CQRS.Event</RootNamespace>
-    <AssemblyName>bgle.CQRS.Event</AssemblyName>
+    <RootNamespace>bgle.CQRS.CommandValidationHandler.Identity</RootNamespace>
+    <AssemblyName>bgle.CQRS.CommandValidationHandler.Identity</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,15 +39,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
-      <Link>Properties\AssemblyVersion.cs</Link>
-    </Compile>
-    <Compile Include="EmptyEvent.cs" />
-    <Compile Include="EntityEvent.cs" />
-    <Compile Include="IEntityEvent.cs" />
-    <Compile Include="IEvent.cs" />
+    <Compile Include="CreateUserCommandValidationHandler.cs" />
+    <Compile Include="DeleteUserCommandValidationHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringEntityEvent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\bgle.Core.Identity\bgle.Core.Identity.csproj">
+      <Project>{165BE1A9-7189-4853-AD96-DCFCFBADC0AC}</Project>
+      <Name>bgle.Core.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Core\bgle.Core\bgle.Core.csproj">
+      <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
+      <Name>bgle.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bgle.CQRS.Command.Identity\bgle.CQRS.Command.Identity.csproj">
+      <Project>{E183EBD2-AECB-4D2D-93C7-12ECD4F7D2B3}</Project>
+      <Name>bgle.CQRS.Command.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bgle.CQRS.CommandValidationHandler\bgle.CQRS.CommandValidationHandler.csproj">
+      <Project>{157A784F-7B8C-456B-BAD1-F3CDA80A3EC8}</Project>
+      <Name>bgle.CQRS.CommandValidationHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bgle.CQRS.Command\bgle.CQRS.Command.csproj">
+      <Project>{6422348F-7583-42EA-8D8E-EC66A29E7440}</Project>
+      <Name>bgle.CQRS.Command</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
