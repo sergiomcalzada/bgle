@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace bgle.Entity
+namespace bgle.Core.Identity
 {
     public interface IIdentityUser<out TKey>
     {

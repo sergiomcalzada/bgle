@@ -67,7 +67,6 @@
     <Compile Include="Entity\DomainEntity.cs" />
     <Compile Include="Entity\Entity.cs" />
     <Compile Include="Entity\ICreatedDate.cs" />
-    <Compile Include="Entity\Identity\IIdentityUser.cs" />
     <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Entity\IUpdatedDate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -59,10 +59,6 @@
     <Compile Include="Scope\CastleWindsorCommandScope.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\bgle.CastleWindsor\bgle.CastleWindsor.csproj">
-      <Project>{050AF027-BD7D-4CD0-9E93-097584047AB1}</Project>
-      <Name>bgle.CastleWindsor</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\bgle.Core.EntityFramework\bgle.Core.EntityFramework.csproj">
       <Project>{84ADBFFB-AFB1-4E26-9732-6B699D4B3EE7}</Project>
       <Name>bgle.Core.EntityFramework</Name>
@@ -71,49 +67,53 @@
       <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
       <Name>bgle.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Command\bgle.CQRS.CommandDispatcher\bgle.CQRS.CommandDispatcher.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Command\bgle.CQRS.CommandDispatcher\bgle.CQRS.CommandDispatcher.csproj">
       <Project>{E129EDC4-D3DE-411E-B62F-AB18CBEF1993}</Project>
       <Name>bgle.CQRS.CommandDispatcher</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Command\bgle.CQRS.CommandHandler\bgle.CQRS.CommandHandler.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Command\bgle.CQRS.CommandHandler\bgle.CQRS.CommandHandler.csproj">
       <Project>{22B4587F-736E-47AE-AB02-DE9949467C21}</Project>
       <Name>bgle.CQRS.CommandHandler</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Command\bgle.CQRS.CommandValidationHandler\bgle.CQRS.CommandValidationHandler.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Command\bgle.CQRS.CommandValidationHandler\bgle.CQRS.CommandValidationHandler.csproj">
       <Project>{157A784F-7B8C-456B-BAD1-F3CDA80A3EC8}</Project>
       <Name>bgle.CQRS.CommandValidationHandler</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Command\bgle.CQRS.Command\bgle.CQRS.Command.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Command\bgle.CQRS.Command\bgle.CQRS.Command.csproj">
       <Project>{6422348f-7583-42ea-8d8e-ec66a29e7440}</Project>
       <Name>bgle.CQRS.Command</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Event\bgle.CQRS.EventHandler\bgle.CQRS.EventHandler.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Event\bgle.CQRS.EventHandler\bgle.CQRS.EventHandler.csproj">
       <Project>{7D674D15-C24F-49F0-8EA6-FE7C9FA38D65}</Project>
       <Name>bgle.CQRS.EventHandler</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Event\bgle.CQRS.EventStore\bgle.CQRS.EventStore.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Event\bgle.CQRS.EventStore\bgle.CQRS.EventStore.csproj">
       <Project>{374799DB-FFB7-4F76-928F-4750EBB5A85B}</Project>
       <Name>bgle.CQRS.EventStore</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Event\bgle.CQRS.Event\bgle.CQRS.Event.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Event\bgle.CQRS.Event\bgle.CQRS.Event.csproj">
       <Project>{63a27e75-338e-4442-8b34-372a4294cecc}</Project>
       <Name>bgle.CQRS.Event</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Query\bgle.CQRS.QueryDispatcher\bgle.CQRS.QueryDispatcher.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Query\bgle.CQRS.QueryDispatcher\bgle.CQRS.QueryDispatcher.csproj">
       <Project>{4B6A4DE4-7EA5-48D7-BA33-B35E9C0D587F}</Project>
       <Name>bgle.CQRS.QueryDispatcher</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Query\bgle.CQRS.QueryHandler\bgle.CQRS.QueryHandler.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Query\bgle.CQRS.QueryHandler\bgle.CQRS.QueryHandler.csproj">
       <Project>{A6960244-D848-4120-A60B-8E68FDEBCB80}</Project>
       <Name>bgle.CQRS.QueryHandler</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Query\bgle.CQRS.QueryResult\bgle.CQRS.QueryResult.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Query\bgle.CQRS.QueryResult\bgle.CQRS.QueryResult.csproj">
       <Project>{38348fb3-b096-4744-bb26-a08879826bb3}</Project>
       <Name>bgle.CQRS.QueryResult</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Query\bgle.CQRS.Query\bgle.CQRS.Query.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Query\bgle.CQRS.Query\bgle.CQRS.Query.csproj">
       <Project>{ffe1622c-ad73-4e87-afef-3643f1d344c0}</Project>
       <Name>bgle.CQRS.Query</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bgle.CastleWindsor\bgle.CastleWindsor.csproj">
+      <Project>{050AF027-BD7D-4CD0-9E93-097584047AB1}</Project>
+      <Name>bgle.CastleWindsor</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
