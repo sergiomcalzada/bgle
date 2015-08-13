@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\AssemblyInfo\AssemblyVersion.cs">
+    <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
     <Compile Include="BulkInsertProvider.cs" />
@@ -67,7 +67,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\bgle.Extensions\bgle.Extensions.csproj">
+    <ProjectReference Include="..\..\..\Core\bgle.Extensions\bgle.Extensions.csproj">
       <Project>{30790f1e-ce43-44b8-a127-1ba85611184c}</Project>
       <Name>bgle.Extensions</Name>
     </ProjectReference>
