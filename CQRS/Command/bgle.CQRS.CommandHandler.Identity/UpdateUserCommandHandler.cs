@@ -7,16 +7,15 @@ using bgle.CQRS.EventStore;
 
 namespace bgle.CQRS.CommandHandler.Identity
 {
-    public class CreateUserCommandHandler : UpsertCommandHandler<CreateUserCommand, IdentityUser, string, EmptyEvent>
+    public class UpdateUserCommandHandler : UpsertCommandHandler<UpdateUserCommand, IdentityUser, string, EmptyEvent>
     {
-        public CreateUserCommandHandler(IEventStore eventStore, IRepository repository, IDateTimeProvider dateTimeProvider)
+        public UpdateUserCommandHandler(IEventStore eventStore, IRepository repository, IDateTimeProvider dateTimeProvider)
             : base(eventStore, repository, dateTimeProvider)
         {
         }
-
-        protected override void FillEntity(CreateUserCommand command, IdentityUser entity)
+        
+        protected override void FillEntity(UpdateUserCommand command, IdentityUser entity)
         {
-            entity.UserName = command.UserName;
             entity.PasswordHash = command.PasswordHash;
             entity.Email = command.Email;
             entity.SecurityStamp = command.SecurityStamp;

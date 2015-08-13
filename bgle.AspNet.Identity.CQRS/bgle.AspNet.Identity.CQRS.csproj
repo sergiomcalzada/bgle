@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F67D0F7F-3298-4F87-9DB1-039A37250672}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>bgle.AspNet.Identity.CQRS</RootNamespace>
+    <AssemblyName>bgle.AspNet.Identity.CQRS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BgleUserStore.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\bgle.Core.Identity\bgle.Core.Identity.csproj">
+      <Project>{165BE1A9-7189-4853-AD96-DCFCFBADC0AC}</Project>
+      <Name>bgle.Core.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\bgle.Core\bgle.Core.csproj">
+      <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
+      <Name>bgle.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CQRS\Command\bgle.CQRS.Command.Identity\bgle.CQRS.Command.Identity.csproj">
+      <Project>{E183EBD2-AECB-4D2D-93C7-12ECD4F7D2B3}</Project>
+      <Name>bgle.CQRS.Command.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CQRS\Command\bgle.CQRS.CommandDispatcher\bgle.CQRS.CommandDispatcher.csproj">
+      <Project>{E129EDC4-D3DE-411E-B62F-AB18CBEF1993}</Project>
+      <Name>bgle.CQRS.CommandDispatcher</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CQRS\Command\bgle.CQRS.Command\bgle.CQRS.Command.csproj">
+      <Project>{6422348F-7583-42EA-8D8E-EC66A29E7440}</Project>
+      <Name>bgle.CQRS.Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CQRS\Query\bgle.CQRS.Query.Identity\bgle.CQRS.Query.Identity.csproj">
+      <Project>{691E0661-C0BD-450B-90F9-A53EF42DD211}</Project>
+      <Name>bgle.CQRS.Query.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CQRS\Query\bgle.CQRS.QueryDispatcher\bgle.CQRS.QueryDispatcher.csproj">
+      <Project>{4B6A4DE4-7EA5-48D7-BA33-B35E9C0D587F}</Project>
+      <Name>bgle.CQRS.QueryDispatcher</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CQRS\Query\bgle.CQRS.QueryResult.Identity\bgle.CQRS.QueryResult.Identity.csproj">
+      <Project>{26979173-E684-468E-B3DC-C39499E23761}</Project>
+      <Name>bgle.CQRS.QueryResult.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CQRS\Query\bgle.CQRS.QueryResult\bgle.CQRS.QueryResult.csproj">
+      <Project>{38348FB3-B096-4744-BB26-A08879826BB3}</Project>
+      <Name>bgle.CQRS.QueryResult</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CQRS\Query\bgle.CQRS.Query\bgle.CQRS.Query.csproj">
+      <Project>{FFE1622C-AD73-4E87-AFEF-3643F1D344C0}</Project>
+      <Name>bgle.CQRS.Query</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

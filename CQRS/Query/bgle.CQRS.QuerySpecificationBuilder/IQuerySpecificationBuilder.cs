@@ -9,4 +9,6 @@ namespace bgle.CQRS.QuerySpecificationBuilder
     {
         ISpecification<TEntity> Build(TQuery query);
     }
+
+   
 }

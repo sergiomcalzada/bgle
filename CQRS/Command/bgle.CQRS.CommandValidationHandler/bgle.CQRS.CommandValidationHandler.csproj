@@ -46,6 +46,7 @@
     <Compile Include="Entity\CreateEntityCommandValidationHandler.cs" />
     <Compile Include="Entity\DeleteCommandValidationHandler.cs" />
     <Compile Include="Entity\EntityCommandValidationHandler.cs" />
+    <Compile Include="Entity\UpdateEntityCommandValidationHandler.cs" />
     <Compile Include="ICommandValidationHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

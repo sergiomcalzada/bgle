@@ -53,6 +53,7 @@
     <Compile Include="Contracts\Encoder\IEncoder.cs" />
     <Compile Include="Contracts\Encoder\ZBase32Encoder.cs" />
     <Compile Include="Contracts\IdGenerator\UidGenerator.cs" />
+    <Compile Include="Contracts\ObjectMapper\IObjectMapper.cs" />
     <Compile Include="Contracts\Repository\IDbContext.cs" />
     <Compile Include="Contracts\Repository\IRepository.cs" />
     <Compile Include="Contracts\Specifications\AndSpecification.cs" />

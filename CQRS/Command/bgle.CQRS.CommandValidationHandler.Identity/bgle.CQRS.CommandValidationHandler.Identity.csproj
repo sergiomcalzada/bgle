@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UpdateUserCommandValidationHandler.cs" />
     <Compile Include="CreateUserCommandValidationHandler.cs" />
     <Compile Include="DeleteUserCommandValidationHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

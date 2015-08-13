@@ -1,27 +1,28 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace bgle.CQRS.Command.Identity
 {
     public class CreateUserCommand : StringEntityCommand
     {
         [Required]
-        public string UserName { get; set; }
+        public string UserName { get; private set; }
 
         [Required]
-        public string PasswordHash { get; set; }
+        public string PasswordHash { get; private set; }
 
         public string SecurityStamp { get; set; }
 
         [Required]
-        public string Email { get; set; }
+        public string Email { get; private set; }
 
-        public string EmailConfirmed { get; set; }
+        public bool EmailConfirmed { get; set; }
 
-        public string LockoutEndDate { get; set; }
+        public DateTimeOffset? LockoutEndDate { get; set; }
 
-        public string AccessFailedCount { get; set; }
+        public int AccessFailedCount { get; set; }
 
-        public string LockoutEnabled { get; set; }
+        public bool LockoutEnabled { get; set; }
 
         public CreateUserCommand(string userName, string passwordHash, string email)
         {

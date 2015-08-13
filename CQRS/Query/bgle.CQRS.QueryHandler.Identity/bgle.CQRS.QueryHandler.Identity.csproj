@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A6960244-D848-4120-A60B-8E68FDEBCB80}</ProjectGuid>
+    <ProjectGuid>{0B4FD420-3FD1-4FE4-988C-3CC162AC19D2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>bgle.CQRS.QueryHandler</RootNamespace>
-    <AssemblyName>bgle.CQRS.QueryHandler</AssemblyName>
+    <RootNamespace>bgle.CQRS.QueryHandler.Identity</RootNamespace>
+    <AssemblyName>bgle.CQRS.QueryHandler.Identity</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,22 +39,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
-      <Link>Properties\AssemblyVersion.cs</Link>
-    </Compile>
-    <Compile Include="Entity\EntityByIdQueryHandler.cs" />
-    <Compile Include="Entity\EntityQueryHandler.cs" />
-    <Compile Include="BaseQueryHandler.cs" />
-    <Compile Include="Entity\EntitySpecificationQueryHandler.cs" />
-    <Compile Include="Entity\MultipleEntitySpecificationQueryHandler.cs" />
-    <Compile Include="Entity\SingleEntitySpecificationQueryHandler.cs" />
-    <Compile Include="IQueryHandler.cs" />
+    <Compile Include="UserByEmailQueryHandler.cs" />
+    <Compile Include="UserByIdQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserByNameQueryHandler.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\bgle.Core.Identity\bgle.Core.Identity.csproj">
+      <Project>{165BE1A9-7189-4853-AD96-DCFCFBADC0AC}</Project>
+      <Name>bgle.Core.Identity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\bgle.Core\bgle.Core.csproj">
       <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
       <Name>bgle.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bgle.CQRS.Query.Identity\bgle.CQRS.Query.Identity.csproj">
+      <Project>{691E0661-C0BD-450B-90F9-A53EF42DD211}</Project>
+      <Name>bgle.CQRS.Query.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bgle.CQRS.QueryHandler\bgle.CQRS.QueryHandler.csproj">
+      <Project>{A6960244-D848-4120-A60B-8E68FDEBCB80}</Project>
+      <Name>bgle.CQRS.QueryHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bgle.CQRS.QueryResult.Identity\bgle.CQRS.QueryResult.Identity.csproj">
+      <Project>{26979173-E684-468E-B3DC-C39499E23761}</Project>
+      <Name>bgle.CQRS.QueryResult.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bgle.CQRS.QueryResultBuilder.Identity\bgle.CQRS.QueryResultBuilder.Identity.csproj">
+      <Project>{A5881A25-255B-4DEB-9DCE-8DABBECAB053}</Project>
+      <Name>bgle.CQRS.QueryResultBuilder.Identity</Name>
     </ProjectReference>
     <ProjectReference Include="..\bgle.CQRS.QueryResultBuilder\bgle.CQRS.QueryResultBuilder.csproj">
       <Project>{37D8CF2C-1868-42F2-859A-A26347EBC4E2}</Project>
@@ -63,6 +76,10 @@
     <ProjectReference Include="..\bgle.CQRS.QueryResult\bgle.CQRS.QueryResult.csproj">
       <Project>{38348FB3-B096-4744-BB26-A08879826BB3}</Project>
       <Name>bgle.CQRS.QueryResult</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bgle.CQRS.QuerySpecificationBuilder.Identity\bgle.CQRS.QuerySpecificationBuilder.Identity.csproj">
+      <Project>{1C35A97D-64AE-4853-8940-BCDF01532CE6}</Project>
+      <Name>bgle.CQRS.QuerySpecificationBuilder.Identity</Name>
     </ProjectReference>
     <ProjectReference Include="..\bgle.CQRS.QuerySpecificationBuilder\bgle.CQRS.QuerySpecificationBuilder.csproj">
       <Project>{8E5AFABC-2266-4A21-B36D-DB01D8FAFD98}</Project>

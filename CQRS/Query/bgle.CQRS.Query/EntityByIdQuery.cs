@@ -10,9 +10,9 @@
         public T Id { get; private set; }
     }
 
-    public class EntityByIdStringQuery : EntityByIdQuery<string>
+    public class EntityByIdQuery : EntityByIdQuery<string>
     {
-        public EntityByIdStringQuery(string id)
+        public EntityByIdQuery(string id)
             : base(id)
         {
         }
