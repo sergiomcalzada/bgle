@@ -1,10 +1,9 @@
 ﻿using bgle.Graph.Rexpro.Test;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace bgle.Graph.Rexpro.Json.Test
 {
-    [TestClass]
     public class SessionTest : BaseSessionTest
     {
         public SessionTest()
@@ -12,19 +11,19 @@ namespace bgle.Graph.Rexpro.Json.Test
         {
         }
 
-        [TestMethod]
+        [Fact]
         public override void CanBeginSession()
         {
             base.CanBeginSession();
         }
 
-        [TestMethod]
+        [Fact]
         public override void CanEndSession()
         {
             base.CanEndSession();
         }
 
-        [TestMethod]
+        [Fact]
         public override void CanUsingSession()
         {
             base.CanUsingSession();

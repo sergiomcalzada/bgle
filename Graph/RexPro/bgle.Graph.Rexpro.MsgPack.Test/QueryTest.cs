@@ -1,10 +1,9 @@
 ﻿using bgle.Graph.Rexpro.Test;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace bgle.Graph.Rexpro.MsgPack.Test
 {
-    [TestClass]
     public class QueryTest : BaseQueryTest
     {
         public QueryTest()
@@ -12,7 +11,7 @@ namespace bgle.Graph.Rexpro.MsgPack.Test
         {
         }
 
-        [TestMethod]
+        [Fact]
         public override void CanQueryTitanGrahpClassTest()
         {
             base.CanQueryTitanGrahpClassTest();

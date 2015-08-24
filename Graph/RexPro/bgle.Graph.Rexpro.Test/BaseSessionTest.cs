@@ -1,6 +1,6 @@
 ﻿using System;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace bgle.Graph.Rexpro.Test
 {
@@ -15,30 +15,30 @@ namespace bgle.Graph.Rexpro.Test
         
         public virtual void CanBeginSession()
         {
-            var session = Client.BeginSession();
-            Assert.IsNotNull(session);
-            Assert.IsNotNull(session.Id);
-            Assert.AreNotEqual(session.Id, Guid.Empty);
+            var session = this.Client.BeginSession();
+            Assert.NotNull(session);
+            Assert.NotNull(session.Id);
+            Assert.NotEqual(session.Id, Guid.Empty);
         }
 
         public virtual void CanEndSession()
         {
-            var session = Client.BeginSession();
-            Assert.IsNotNull(session);
-            Assert.IsNotNull(session.Id);
-            Assert.AreNotEqual(session.Id, Guid.Empty);
+            var session = this.Client.BeginSession();
+            Assert.NotNull(session);
+            Assert.NotNull(session.Id);
+            Assert.NotEqual(session.Id, Guid.Empty);
 
-            Client.EndSession(session);
-            Assert.IsTrue(session.Killed);
+            this.Client.EndSession(session);
+            Assert.True(session.Killed);
         }
 
         public virtual void CanUsingSession()
         {
-            using (var session = Client.BeginSession())
+            using (var session = this.Client.BeginSession())
             {
-                Assert.IsNotNull(session);
-                Assert.IsNotNull(session.Id);
-                Assert.AreNotEqual(session.Id, Guid.Empty);
+                Assert.NotNull(session);
+                Assert.NotNull(session.Id);
+                Assert.NotEqual(session.Id, Guid.Empty);
             }
         }
     }

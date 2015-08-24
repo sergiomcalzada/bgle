@@ -1,10 +1,9 @@
 ﻿using bgle.Graph.Rexpro.Test;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace bgle.Graph.Rexpro.Json.Test
 {
-    [TestClass]
     public class ScriptTest : BaseScriptTest
     {
         
@@ -14,25 +13,25 @@ namespace bgle.Graph.Rexpro.Json.Test
         {
         }
 
-        [TestMethod]
+        [Fact]
         public override void CanRunQuery()
         {
             base.CanRunQuery();
         }
 
-        [TestMethod]
+        [Fact]
         public override void CanRunWithDictionaryBindingsQuery()
         {
             base.CanRunWithDictionaryBindingsQuery();
         }
 
-        [TestMethod]
+        [Fact]
         public override void CanRunQueryInSession()
         {
             base.CanRunQueryInSession();
         }
 
-        [TestMethod]
+        [Fact]
         public override void CanRunQueryWithDictionaryBindingsInSession()
         {
             base.CanRunQueryWithDictionaryBindingsInSession();

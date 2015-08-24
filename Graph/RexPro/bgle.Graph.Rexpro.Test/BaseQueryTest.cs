@@ -1,4 +1,4 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace bgle.Graph.Rexpro.Test
 {
@@ -13,8 +13,8 @@ namespace bgle.Graph.Rexpro.Test
         {
             this.Client.GraphName = "titanexample";
             var result = this.Client.Query("g.getClass()");
-            Assert.IsNotNull(result);
-            Assert.IsTrue(result.Value.ToString().Equals("class com.thinkaurelius.titan.graphdb.database.StandardTitanGraph"));
+            Assert.NotNull(result);
+            Assert.True(result.Value.ToString().Equals("class com.thinkaurelius.titan.graphdb.database.StandardTitanGraph"));
         }
         
     }
