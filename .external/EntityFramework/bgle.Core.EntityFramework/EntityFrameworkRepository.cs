@@ -60,7 +60,7 @@ namespace bgle.EntityFramework
             return specification.SatisfyingEntitiesFrom(this.GetSet<TEntity>());
         }
 
-        private DbSet<TEntity> GetSet<TEntity>() where TEntity : class, IEntity
+        private IDbSet<TEntity> GetSet<TEntity>() where TEntity : class, IEntity
         {
             return this.dbContext.Set<TEntity>();
         }

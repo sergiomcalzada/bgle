@@ -46,6 +46,7 @@ namespace bgle.AspNet.Identity.CQRS
         public Task CreateAsync(TUser user)
         {
             this.ThrowIfDisposed();
+
             var iidentiy = (IIdentityUser<string>)user;
             var createUserCommand = new CreateUserCommand(iidentiy.UserName, iidentiy.PasswordHash, iidentiy.Email)
                                         {
@@ -60,6 +61,7 @@ namespace bgle.AspNet.Identity.CQRS
         public Task UpdateAsync(TUser user)
         {
             this.ThrowIfDisposed();
+
             var iidentiy = (IIdentityUser<string>)user;
             var createUserCommand = new UpdateUserCommand(iidentiy.Id)
             {
@@ -72,33 +74,39 @@ namespace bgle.AspNet.Identity.CQRS
                 SecurityStamp = user.SecurityStamp,
             };
             var result = this.commandDispatcher.Dispatch(createUserCommand);
+
             return Task.FromResult(result.IsValid);
         }
 
         public Task DeleteAsync(TUser user)
         {
             this.ThrowIfDisposed();
+
             var iidentiy = (IIdentityUser<string>)user;
             var result = this.commandDispatcher.Dispatch(new DeleteUserCommand(iidentiy.Id));
+
             return Task.FromResult(result.IsValid);
         }
 
         public async Task<TUser> FindByIdAsync(string userId)
         {
             this.ThrowIfDisposed();
+
             var query = new UserByIdQuery(userId);
             var queryResult = await this.queryDispatcher.DispatchAsync<UserByIdQuery, UserQueryResult>(query);
             var user = this.objectMapper.Map<UserQueryResult, TUser>(queryResult);
+
             return user;
         }
 
         public async Task<TUser> FindByNameAsync(string userName)
         {
             this.ThrowIfDisposed();
-            this.ThrowIfDisposed();
+
             var query = new UserByNameQuery(userName);
             var queryResult = await this.queryDispatcher.DispatchAsync<UserByNameQuery, UserQueryResult>(query);
             var user = this.objectMapper.Map<UserQueryResult, TUser>(queryResult);
+
             return user;
         }
         
@@ -109,20 +117,28 @@ namespace bgle.AspNet.Identity.CQRS
         public Task SetPasswordHashAsync(TUser user, string passwordHash)
         {
             this.ThrowIfDisposed();
+
             user.PasswordHash = passwordHash;
+
             return Task.FromResult(0);
         }
 
         public Task<string> GetPasswordHashAsync(TUser user)
         {
             this.ThrowIfDisposed();
-            return Task.FromResult(user.PasswordHash);
+
+            var passwordHash = user.PasswordHash;
+
+            return Task.FromResult(passwordHash);
         }
 
         public Task<bool> HasPasswordAsync(TUser user)
         {
             this.ThrowIfDisposed();
-            return Task.FromResult(user.PasswordHash != null);
+
+            var hasPassword = user.PasswordHash != null;
+
+            return Task.FromResult(hasPassword);
         }
 
         #endregion
@@ -132,36 +148,47 @@ namespace bgle.AspNet.Identity.CQRS
         public Task SetEmailAsync(TUser user, string email)
         {
             this.ThrowIfDisposed();
+
             user.Email = email;
+
             return Task.FromResult(0);
         }
 
         public Task<string> GetEmailAsync(TUser user)
         {
             this.ThrowIfDisposed();
-            return Task.FromResult(user.Email);
+
+            var email = user.Email;
+
+            return Task.FromResult(email);
         }
 
         public Task<bool> GetEmailConfirmedAsync(TUser user)
         {
             this.ThrowIfDisposed();
-            return Task.FromResult(user.EmailConfirmed);
+
+            var emailConfirmed = user.EmailConfirmed;
+
+            return Task.FromResult(emailConfirmed);
         }
 
         public Task SetEmailConfirmedAsync(TUser user, bool confirmed)
         {
             this.ThrowIfDisposed();
+
             user.EmailConfirmed = confirmed;
+
             return Task.FromResult(0);
         }
 
         public async Task<TUser> FindByEmailAsync(string email)
         {
             this.ThrowIfDisposed();
-            this.ThrowIfDisposed();
+            
             var query = new UserByEmailQuery(email);
             var queryResult = await this.queryDispatcher.DispatchAsync<UserByEmailQuery, UserQueryResult>(query);
             var user = this.objectMapper.Map<UserQueryResult, TUser>(queryResult);
+
             return user;
         }
 
@@ -172,14 +199,19 @@ namespace bgle.AspNet.Identity.CQRS
         public Task SetSecurityStampAsync(TUser user, string stamp)
         {
             this.ThrowIfDisposed();
+
             user.SecurityStamp = stamp;
+
             return Task.FromResult(0);
         }
 
         public Task<string> GetSecurityStampAsync(TUser user)
         {
             this.ThrowIfDisposed();
-            return Task.FromResult(user.SecurityStamp);
+
+            var securityStamp = user.SecurityStamp;
+
+            return Task.FromResult(securityStamp);
         }
 
         #endregion
@@ -191,46 +223,61 @@ namespace bgle.AspNet.Identity.CQRS
             this.ThrowIfDisposed();
 
             var lockoutEndDate = user.LockoutEndDate ?? new DateTimeOffset(this.dateTimeProvider.Epoch);
+
             return Task.FromResult(lockoutEndDate);
         }
 
         public Task SetLockoutEndDateAsync(TUser user, DateTimeOffset lockoutEnd)
         {
             this.ThrowIfDisposed();
+            
             user.LockoutEndDate = lockoutEnd;
+
             return Task.FromResult(0);
         }
 
         public Task<int> IncrementAccessFailedCountAsync(TUser user)
         {
             this.ThrowIfDisposed();
+
             user.AccessFailedCount++;
+
             return Task.FromResult(user.AccessFailedCount);
         }
 
         public Task ResetAccessFailedCountAsync(TUser user)
         {
             this.ThrowIfDisposed();
+
             user.AccessFailedCount = 0;
+
             return Task.FromResult(0);
         }
 
         public Task<int> GetAccessFailedCountAsync(TUser user)
         {
             this.ThrowIfDisposed();
-            return Task.FromResult(user.AccessFailedCount);
+
+            var accessFailedCount = user.AccessFailedCount;
+
+            return Task.FromResult(accessFailedCount);
         }
 
         public Task<bool> GetLockoutEnabledAsync(TUser user)
         {
             this.ThrowIfDisposed();
-            return Task.FromResult(user.LockoutEnabled);
+
+            var lockoutEnabled = user.LockoutEnabled;
+
+            return Task.FromResult(lockoutEnabled);
         }
 
         public Task SetLockoutEnabledAsync(TUser user, bool enabled)
         {
             this.ThrowIfDisposed();
+
             user.LockoutEnabled = enabled;
+
             return Task.FromResult(0);
         }
 
