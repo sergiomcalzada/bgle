@@ -9,7 +9,7 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace bgle.CastleWindsor.Installer
+namespace bgle.CQRS.CastleWindsor.Installer
 {
     public class DatabaseAcessInstaller : IWindsorInstaller
     {
@@ -22,6 +22,7 @@ namespace bgle.CastleWindsor.Installer
 
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
+
             container.Register(Component.For<IRepository, EntityFrameworkRepository>().LifestyleScoped<LifetimeScopeOrTransientAccessor>(),
                 Component.For<IUnitOfWork, EntityFrameworkUnitOfWork>().LifestyleScoped<LifetimeScopeOrTransientAccessor>(),
                 Component.For<IDbContext>().ImplementedBy(this.dbContextType).LifestyleScoped<LifetimeScopeOrTransientAccessor>());

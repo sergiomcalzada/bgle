@@ -6,7 +6,7 @@ using bgle.CQRS.CommandHandler;
 using Castle.MicroKernel;
 using Castle.MicroKernel.Lifestyle;
 
-namespace bgle.CastleWindsor.Scope
+namespace bgle.CQRS.CastleWindsor.Scope
 {
     public class CastleWindsorCommandScope : ICommandScope
     {

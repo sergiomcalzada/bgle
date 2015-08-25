@@ -1,18 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\..\packages\xunit.runner.visualstudio.2.0.1\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\..\..\packages\xunit.runner.visualstudio.2.0.1\build\net20\xunit.runner.visualstudio.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A5F09AD8-259D-4F13-A226-56BD281F02D1}</ProjectGuid>
+    <ProjectGuid>{1A503AFC-4E3D-48D4-A5C0-178DA4228891}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>bgle.CQRS.CastleWindsor</RootNamespace>
-    <AssemblyName>bgle.CQRS.CastleWindsor</AssemblyName>
+    <RootNamespace>bgle.Test.Common</RootNamespace>
+    <AssemblyName>bgle.Test.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>10f452fe</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,11 +34,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core">
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Castle.Windsor">
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\.external\EntityFramework\bgle.EntityFramework.Bulk\bin\Debug\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,20 +52,27 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TestStack.BDDfy, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\TestStack.BDDfy.4.1.2\lib\NET40\TestStack.BDDfy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\AssemblyInfo\AssemblyVersion.cs">
-      <Link>Properties\AssemblyVersion.cs</Link>
-    </Compile>
-    <Compile Include="Installer\Command\CommandHandlersInstaller.cs" />
-    <Compile Include="Installer\Command\CommandValidationHandlersInstaller.cs" />
-    <Compile Include="Installer\Query\QueryHandlersInstaller.cs" />
-    <Compile Include="Installer\DatabaseAcessInstaller.cs" />
-    <Compile Include="Installer\Event\EventHandlersInstaller.cs" />
+    <Compile Include="BaseTest.cs" />
+    <Compile Include="IScenario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scope\CastleWindsorCommandScope.cs" />
+    <Compile Include="ScenarioBase.cs" />
+    <Compile Include="xUnitReporter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\.external\CastleWindsor\bgle.CQRS.CastleWindsor\bgle.CQRS.CastleWindsor.csproj">
+      <Project>{A5F09AD8-259D-4F13-A226-56BD281F02D1}</Project>
+      <Name>bgle.CQRS.CastleWindsor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\bgle.Core\bgle.Core.csproj">
       <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
       <Name>bgle.Core</Name>
@@ -67,9 +81,17 @@
       <Project>{E129EDC4-D3DE-411E-B62F-AB18CBEF1993}</Project>
       <Name>bgle.CQRS.CommandDispatcher</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\CQRS\Command\bgle.CQRS.CommandHandler.Identity\bgle.CQRS.CommandHandler.Identity.csproj">
+      <Project>{7D954CD7-17A7-4C3D-8DD9-E4C50211445A}</Project>
+      <Name>bgle.CQRS.CommandHandler.Identity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\CQRS\Command\bgle.CQRS.CommandHandler\bgle.CQRS.CommandHandler.csproj">
       <Project>{22B4587F-736E-47AE-AB02-DE9949467C21}</Project>
       <Name>bgle.CQRS.CommandHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CQRS\Command\bgle.CQRS.CommandValidationHandler.Identity\bgle.CQRS.CommandValidationHandler.Identity.csproj">
+      <Project>{21F2438F-B5B1-4852-9815-C9CCDAFABCFD}</Project>
+      <Name>bgle.CQRS.CommandValidationHandler.Identity</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\CQRS\Command\bgle.CQRS.CommandValidationHandler\bgle.CQRS.CommandValidationHandler.csproj">
       <Project>{157A784F-7B8C-456B-BAD1-F3CDA80A3EC8}</Project>
@@ -79,10 +101,6 @@
       <Project>{6422348f-7583-42ea-8d8e-ec66a29e7440}</Project>
       <Name>bgle.CQRS.Command</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\CQRS\Event\bgle.CQRS.EventHandler\bgle.CQRS.EventHandler.csproj">
-      <Project>{7D674D15-C24F-49F0-8EA6-FE7C9FA38D65}</Project>
-      <Name>bgle.CQRS.EventHandler</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\CQRS\Event\bgle.CQRS.EventStore\bgle.CQRS.EventStore.csproj">
       <Project>{374799DB-FFB7-4F76-928F-4750EBB5A85B}</Project>
       <Name>bgle.CQRS.EventStore</Name>
@@ -91,33 +109,10 @@
       <Project>{63a27e75-338e-4442-8b34-372a4294cecc}</Project>
       <Name>bgle.CQRS.Event</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\CQRS\Query\bgle.CQRS.QueryDispatcher\bgle.CQRS.QueryDispatcher.csproj">
-      <Project>{4B6A4DE4-7EA5-48D7-BA33-B35E9C0D587F}</Project>
-      <Name>bgle.CQRS.QueryDispatcher</Name>
+    <ProjectReference Include="..\bgle.Test.Domain.Context\bgle.Test.Domain.Context.csproj">
+      <Project>{E3FBF602-D920-4C29-B18F-AF515ACEDB5D}</Project>
+      <Name>bgle.Test.Domain.Context</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\CQRS\Query\bgle.CQRS.QueryHandler\bgle.CQRS.QueryHandler.csproj">
-      <Project>{A6960244-D848-4120-A60B-8E68FDEBCB80}</Project>
-      <Name>bgle.CQRS.QueryHandler</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\CQRS\Query\bgle.CQRS.QueryResult\bgle.CQRS.QueryResult.csproj">
-      <Project>{38348fb3-b096-4744-bb26-a08879826bb3}</Project>
-      <Name>bgle.CQRS.QueryResult</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\CQRS\Query\bgle.CQRS.Query\bgle.CQRS.Query.csproj">
-      <Project>{ffe1622c-ad73-4e87-afef-3643f1d344c0}</Project>
-      <Name>bgle.CQRS.Query</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\EntityFramework\bgle.Core.EntityFramework\bgle.Core.EntityFramework.csproj">
-      <Project>{84ADBFFB-AFB1-4E26-9732-6B699D4B3EE7}</Project>
-      <Name>bgle.Core.EntityFramework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\bgle.CastleWindsor\bgle.CastleWindsor.csproj">
-      <Project>{050AF027-BD7D-4CD0-9E93-097584047AB1}</Project>
-      <Name>bgle.CastleWindsor</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
@@ -126,6 +121,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\..\..\packages\xunit.runner.visualstudio.2.0.1\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\xunit.runner.visualstudio.2.0.1\build\net20\xunit.runner.visualstudio.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
