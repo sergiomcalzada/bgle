@@ -52,43 +52,43 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\bgle.Core.Identity\bgle.Core.Identity.csproj">
+    <ProjectReference Include="..\..\..\Core\bgle.Core.Identity\bgle.Core.Identity.csproj">
       <Project>{165BE1A9-7189-4853-AD96-DCFCFBADC0AC}</Project>
       <Name>bgle.Core.Identity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Core\bgle.Core\bgle.Core.csproj">
+    <ProjectReference Include="..\..\..\Core\bgle.Core\bgle.Core.csproj">
       <Project>{74DFB791-DBA6-43A7-BC27-4813E01DC077}</Project>
       <Name>bgle.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CQRS\Command\bgle.CQRS.Command.Identity\bgle.CQRS.Command.Identity.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Command\bgle.CQRS.Command.Identity\bgle.CQRS.Command.Identity.csproj">
       <Project>{E183EBD2-AECB-4D2D-93C7-12ECD4F7D2B3}</Project>
       <Name>bgle.CQRS.Command.Identity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CQRS\Command\bgle.CQRS.CommandDispatcher\bgle.CQRS.CommandDispatcher.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Command\bgle.CQRS.CommandDispatcher\bgle.CQRS.CommandDispatcher.csproj">
       <Project>{E129EDC4-D3DE-411E-B62F-AB18CBEF1993}</Project>
       <Name>bgle.CQRS.CommandDispatcher</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CQRS\Command\bgle.CQRS.Command\bgle.CQRS.Command.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Command\bgle.CQRS.Command\bgle.CQRS.Command.csproj">
       <Project>{6422348F-7583-42EA-8D8E-EC66A29E7440}</Project>
       <Name>bgle.CQRS.Command</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CQRS\Query\bgle.CQRS.Query.Identity\bgle.CQRS.Query.Identity.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Query\bgle.CQRS.Query.Identity\bgle.CQRS.Query.Identity.csproj">
       <Project>{691E0661-C0BD-450B-90F9-A53EF42DD211}</Project>
       <Name>bgle.CQRS.Query.Identity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CQRS\Query\bgle.CQRS.QueryDispatcher\bgle.CQRS.QueryDispatcher.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Query\bgle.CQRS.QueryDispatcher\bgle.CQRS.QueryDispatcher.csproj">
       <Project>{4B6A4DE4-7EA5-48D7-BA33-B35E9C0D587F}</Project>
       <Name>bgle.CQRS.QueryDispatcher</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CQRS\Query\bgle.CQRS.QueryResult.Identity\bgle.CQRS.QueryResult.Identity.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Query\bgle.CQRS.QueryResult.Identity\bgle.CQRS.QueryResult.Identity.csproj">
       <Project>{26979173-E684-468E-B3DC-C39499E23761}</Project>
       <Name>bgle.CQRS.QueryResult.Identity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CQRS\Query\bgle.CQRS.QueryResult\bgle.CQRS.QueryResult.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Query\bgle.CQRS.QueryResult\bgle.CQRS.QueryResult.csproj">
       <Project>{38348FB3-B096-4744-BB26-A08879826BB3}</Project>
       <Name>bgle.CQRS.QueryResult</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CQRS\Query\bgle.CQRS.Query\bgle.CQRS.Query.csproj">
+    <ProjectReference Include="..\..\..\CQRS\Query\bgle.CQRS.Query\bgle.CQRS.Query.csproj">
       <Project>{FFE1622C-AD73-4E87-AFEF-3643F1D344C0}</Project>
       <Name>bgle.CQRS.Query</Name>
     </ProjectReference>
